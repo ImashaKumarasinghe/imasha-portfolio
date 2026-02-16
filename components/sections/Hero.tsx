@@ -1,7 +1,11 @@
 import { Button } from "@/components/ui/button";
+import ThreeBackground from "../ThreeBackground";
 
 export default function Hero() {
   return (
+    <main className="relative min-h-screen">
+      <ThreeBackground />
+
     <section className="mx-auto max-w-5xl px-6 py-16">
       <p className="text-sm text-muted-foreground">Software Engineer • IEEE WIE</p>
 
@@ -30,5 +34,6 @@ export default function Hero() {
         </Button>
       </div>
     </section>
+    </main>
   );
 }
