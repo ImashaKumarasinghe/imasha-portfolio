@@ -58,13 +58,17 @@ export default function ThreeBackground() {
       const geometry = new THREE.BufferGeometry();
       geometry.setAttribute("position", new THREE.BufferAttribute(positions, 3));
 
+      // ✅ Blue dots + glow
       const material = new THREE.PointsMaterial({
-        size: 18,
+        size: 14,
         map: texture,
+        color: 0x39cbd4, // 🔵 blue
         transparent: true,
         depthWrite: false,
         opacity: 0.9,
       });
+
+      material.blending = THREE.AdditiveBlending; // ✨ glow effect
 
       points = new THREE.Points(geometry, material);
       scene.add(points);
@@ -115,7 +119,7 @@ export default function ThreeBackground() {
         inset: 0,
         zIndex: -1,
         pointerEvents: "none",
-        background: "#000", // ensures visible
+        background: "#ffffff", // 🤍 white background
       }}
     />
   );
