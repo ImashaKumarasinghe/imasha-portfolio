@@ -22,8 +22,10 @@ export default function Hero() {
       >
         {/* LEFT SIDE - TEXT */}
         <div style={{ maxWidth: "500px" }}>
-          <h1 style={{ fontSize: "48px", fontWeight: "bold" }}>
-            Hi, I'm Imasha 👋
+          <h3 style={{ fontSize: "28px", fontWeight: "bold" }}> Hello, I'm <br/> </h3>
+          <h1 style={{ fontSize: "48px", fontWeight: "bold" ,color: "#2a35a5"}}>
+            
+            Imasha Kumarasinghe
           </h1>
           <p style={{ marginTop: "20px", fontSize: "18px", lineHeight: "1.6" }}>
             Software Engineering Undergraduate passionate about
