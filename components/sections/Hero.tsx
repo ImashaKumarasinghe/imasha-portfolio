@@ -1,4 +1,5 @@
 import { Button } from "@/components/ui/button";
+import Image from "next/image";
 import ThreeBackground from "../ThreeBackground";
 
 export default function Hero() {
@@ -6,34 +7,53 @@ export default function Hero() {
     <main className="relative min-h-screen">
       <ThreeBackground />
 
-    <section className="mx-auto max-w-5xl px-6 py-16">
-      <p className="text-sm text-muted-foreground">Software Engineer • IEEE WIE</p>
+   <section
+        style={{
+          position: "relative",
+          zIndex: 1,
+          display: "flex",
+          alignItems: "center",
+          justifyContent: "center",
+          minHeight: "100vh",
+          padding: "40px",
+          gap: "60px",
+          flexWrap: "wrap",
+        }}
+      >
+        {/* LEFT SIDE - TEXT */}
+        <div style={{ maxWidth: "500px" }}>
+          <h3 style={{ fontSize: "28px", fontWeight: "bold" }}> Hello, I'm <br/> </h3>
+          <h1 style={{ fontSize: "48px", fontWeight: "bold" ,color: "#2a35a5"}}>
+            
+            Imasha Kumarasinghe
+          </h1>
+          <p style={{ marginTop: "20px", fontSize: "18px", lineHeight: "1.6" }}>
+            Software Engineering Undergraduate passionate about
+            AI, Full-Stack Development, and building impactful systems.
+          </p>
+        </div>
 
-      <h1 className="mt-4 text-4xl font-bold tracking-tight sm:text-5xl">
-        Hi, I&apos;m Imasha Kumarasinghe
-      </h1>
+        {/* RIGHT SIDE - PHOTO */}
+       <div
+          style={{
+            borderRadius: "20px",
+            overflow: "hidden",
+            boxShadow: "0 20px 40px rgba(0,0,0,0.1)",
+          }}
+        >
 
-      <p className="mt-4 text-lg text-muted-foreground max-w-2xl">
-        I build modern full-stack web apps and AI-powered projects. Currently focusing on
-        Next.js, Supabase, and real-world products for internships.
-      </p>
-
-      <div className="mt-8 flex flex-wrap gap-3">
-        <Button asChild>
-          <a href="#projects">View Projects</a>
-        </Button>
-
-        <Button variant="outline" asChild>
-          <a href="#contact">Get in Touch</a>
-        </Button>
-
-        <Button variant="secondary" asChild>
-          <a href="/cv.pdf" target="_blank" rel="noreferrer">
-            Download CV
-          </a>
-        </Button>
-      </div>
-    </section>
+          <Image
+            src="/images/ima-removebg-preview.png"
+            alt="Imasha Kumarasinghe"
+            width={350}
+            height={450}
+            priority
+            style={{
+              objectFit: "cover",
+            }}
+          />
+        </div>
+      </section>
     </main>
   );
 }
