@@ -1,6 +1,7 @@
 "use client";
 
 import React, { useEffect, useRef } from "react";
+import Image from "next/image";
 
 const AnimatedCard = () => {
   const topRef = useRef<HTMLDivElement>(null);
@@ -31,10 +32,37 @@ const AnimatedCard = () => {
   }, []);
 
   const institutions = [
-    "Sabaragamuwa University of Sri Lanka",
-    "LPEC Campus",
-    "Bandaranayake Central College – Veyangoda",
-    "Hatton National Bank",
+    {
+      title: "Sabaragamuwa University of Sri Lanka",
+      logo: "/logos/susl.png",
+      details: [
+        "B.Sc (Hons) in Software Engineering",
+        "Current GPA: 3.74",
+      ],
+    },
+    {
+      title: "LPEC Campus",
+      logo: "/logos/lpec.png",
+      details: [
+        "Diploma in Human Resource Management",
+        "2021 - 2022",
+      ],
+    },
+    {
+      title: "Bandaranayake Central College – Veyangoda",
+      logo: "/logos/vcc.png",
+      details: [
+        "Physical Science Stream",
+      ],
+    },
+    {
+      title: "Hatton National Bank",
+      logo: "/logos/hnb.png",
+      details: [
+        "Banking Internship",
+        
+      ],
+    },
   ];
 
   return (
@@ -42,31 +70,19 @@ const AnimatedCard = () => {
 
       {/* Animated Borders */}
       <div className="absolute top-0 left-0 w-full h-0.5 overflow-hidden">
-        <div
-          ref={topRef}
-          className="absolute top-0 left-0 w-full h-full bg-gradient-to-r from-transparent via-blue-500/50 to-transparent"
-        ></div>
+        <div ref={topRef} className="absolute w-full h-full bg-gradient-to-r from-transparent via-blue-500/50 to-transparent" />
       </div>
 
       <div className="absolute top-0 right-0 w-0.5 h-full overflow-hidden">
-        <div
-          ref={rightRef}
-          className="absolute top-0 left-0 w-full h-full bg-gradient-to-b from-transparent via-blue-500/50 to-transparent"
-        ></div>
+        <div ref={rightRef} className="absolute w-full h-full bg-gradient-to-b from-transparent via-blue-500/50 to-transparent" />
       </div>
 
       <div className="absolute bottom-0 left-0 w-full h-0.5 overflow-hidden">
-        <div
-          ref={bottomRef}
-          className="absolute top-0 left-0 w-full h-full bg-gradient-to-r from-transparent via-blue-500/50 to-transparent"
-        ></div>
+        <div ref={bottomRef} className="absolute w-full h-full bg-gradient-to-r from-transparent via-blue-500/50 to-transparent" />
       </div>
 
       <div className="absolute top-0 left-0 w-0.5 h-full overflow-hidden">
-        <div
-          ref={leftRef}
-          className="absolute top-0 left-0 w-full h-full bg-gradient-to-b from-transparent via-blue-500/50 to-transparent"
-        ></div>
+        <div ref={leftRef} className="absolute w-full h-full bg-gradient-to-b from-transparent via-blue-500/50 to-transparent" />
       </div>
 
       {/* Content */}
@@ -79,19 +95,32 @@ const AnimatedCard = () => {
           {institutions.map((item, index) => (
             <div
               key={index}
-              className="bg-white/70 backdrop-blur-sm rounded-xl p-5 border border-gray-200 hover:border-blue-400 transition-all"
+              className="bg-white/80 backdrop-blur-sm rounded-xl p-6 border border-gray-200 hover:border-blue-400 transition-all"
             >
-              <div className="flex items-center gap-4">
+              <div className="flex items-start gap-4">
                 
-                {/* Image Upload Field */}
-                <input
-                  type="file"
-                  accept="image/*"
-                  className="w-12 h-12 border border-gray-300 rounded-full cursor-pointer bg-white"
-                />
+                {/* Logo */}
+                <div className="w-14 h-14 rounded-full bg-white border border-gray-300 overflow-hidden flex items-center justify-center flex-shrink-0">
+                  <Image
+                    src={item.logo}
+                    alt={`${item.title} logo`}
+                    width={50}
+                    height={50}
+                    className="object-cover"
+                  />
+                </div>
 
-                <div>
-                  <h3 className="font-semibold text-gray-800">{item}</h3>
+                {/* Text Content */}
+                <div className="text-left">
+                  <h3 className="font-semibold text-gray-800">
+                    {item.title}
+                  </h3>
+
+                  <ul className="mt-2 space-y-1 text-sm text-gray-700">
+                    {item.details.map((detail, i) => (
+                      <li key={i}>• {detail}</li>
+                    ))}
+                  </ul>
                 </div>
 
               </div>
@@ -101,8 +130,8 @@ const AnimatedCard = () => {
       </div>
 
       {/* Decorative blur shapes */}
-      <div className="absolute -top-20 -right-20 w-40 h-40 rounded-full bg-blue-400/20 blur-xl"></div>
-      <div className="absolute -bottom-20 -left-20 w-40 h-40 rounded-full bg-blue-400/20 blur-xl"></div>
+      <div className="absolute -top-20 -right-20 w-40 h-40 rounded-full bg-blue-400/20 blur-xl" />
+      <div className="absolute -bottom-20 -left-20 w-40 h-40 rounded-full bg-blue-400/20 blur-xl" />
     </div>
   );
 };
