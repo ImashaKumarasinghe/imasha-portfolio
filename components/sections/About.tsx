@@ -1,10 +1,12 @@
 "use client";
 
 import AnimatedCard from "@/components/dynamic-border-animations-card";
+import { TestimonialCarousel } from "@/components/profile-card-testimonial-carousel";
 
 export default function About() {
   return (
     <section id="about" className="mx-auto max-w-8xl px-6 py-16">
+      
       {/* Center aligned heading + paragraph */}
       <div className="text-center">
         <h2 className="text-2xl font-semibold">About Me</h2>
@@ -15,14 +17,12 @@ export default function About() {
 
       {/* Two Column Layout */}
       <div className="mt-12 grid md:grid-cols-2 gap-12">
+        
         {/* LEFT COLUMN */}
         <div>
-          
+          <div className="space-y-6"></div>
 
-          <div className="space-y-6">
-          </div>
-
-          {/* Animated Card (placed in LEFT column as you requested) */}
+          {/* Animated Card */}
           <div className="mt-8">
             <AnimatedCard />
           </div>
@@ -48,6 +48,11 @@ export default function About() {
                 engagement for a national-level hackathon.
               </p>
             </div>
+          </div>
+
+          {/* Profile/Testimonial Card */}
+          <div className="mt-8">
+            <TestimonialCarousel />
           </div>
         </div>
       </div>
