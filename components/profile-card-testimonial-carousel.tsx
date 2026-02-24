@@ -5,10 +5,6 @@ import Image from "next/image";
 import Link from "next/link";
 import { motion, AnimatePresence } from "framer-motion";
 import {
-  Github,
-  Twitter,
-  Youtube,
-  Linkedin,
   ChevronLeft,
   ChevronRight,
 } from "lucide-react";
@@ -32,43 +28,40 @@ const testimonials: Testimonial[] = [
     description:
       "Serving as Secretary of the IEEE WIE Student Branch Affinity Group at SUSL, supporting event planning, documentation, coordination, and communication to ensure smooth execution of student-led STEM initiatives.",
     imageUrl: "/volunteer/wie-secretary.jpg",
-    githubUrl: "#",
-    twitterUrl: "#",
-    youtubeUrl: "#",
-    linkedinUrl: "#",
+    
   },
   {
-    name: "University Sub-OC Secretary",
-    title: "IEEE Young Professionals Sri Lanka | 2025 – Present (1 yr 2 mos)",
+    name: "Vice Secretary",
+    title: "IEEE WIE Affinity Group – SUSL | 2024-2025",
+    description:
+      "Contributed to organizing events, coordinating teams, maintaining documentation, and improving collaboration processes while strengthening leadership and communication skills.",
+    imageUrl: "/volunteer/vsecretary.jpg",
+    
+  },
+  
+  {
+    name: "Career Compass | University Sub-OC Secretary",
+    title: "IEEE Young Professionals Sri Lanka | 2025",
     description:
       "Contributed as the University Sub-Organizing Committee (Sub-OC) Secretary, supporting coordination, communication, and smooth execution of the seminar aimed at guiding students toward informed academic and career pathways.",
     imageUrl: "/volunteer/yp-suboc.jpg",
-    githubUrl: "#",
-    twitterUrl: "#",
-    youtubeUrl: "#",
-    linkedinUrl: "#",
+    
   },
   {
-    name: "Event Organizer & Instructor",
-    title: "IEEE WIE Student Branch Affinity Group – SUSL | Aug 2025 – Present (7 mos)",
+    name: "Instructor & ExCom Member – Hope Code Club",
+    title: "IEEE WIE Student Branch Affinity Group – SUSL",
     description:
-      "Organized and facilitated technical and professional-development sessions, supporting participant engagement, structured delivery, and effective learning outcomes for undergraduates in STEM.",
+      "Facilitated hands-on coding sessions for school students and supported event coordination, planning, and execution under IEEE WIE initiatives, enhancing mentorship, leadership, and organizational skills.",
     imageUrl: "/volunteer/organizer-instructor.jpg",
-    githubUrl: "#",
-    twitterUrl: "#",
-    youtubeUrl: "#",
-    linkedinUrl: "#",
+    
   },
   {
     name: "Student Volunteer",
-    title: "ICARC 2025 – Faculty of Computing, SUSL | Jan 2025 – Present (1 yr 2 mos)",
+    title: "ICARC 2025 – Faculty of Computing, SUSL | Jan 2025",
     description:
-      "Appointed as a Student Volunteer for ICARC 2025 (hybrid). Supported academic sessions and conference operations under the theme “Converging Horizons: Uniting Disciplines in Computing Research through AI Innovation.”",
-    imageUrl: "/volunteer/icarc-volunteer.jpg",
-    githubUrl: "#",
-    twitterUrl: "#",
-    youtubeUrl: "#",
-    linkedinUrl: "#",
+      "Appointed as a Student Volunteer for ICARC 2025 (hybrid international research conference), supporting session coordination and overall conference operations.”",
+    imageUrl: "/volunteer/icarc.jpg",
+    
   },
   {
     name: "First Runner-Up",
@@ -76,10 +69,7 @@ const testimonials: Testimonial[] = [
     description:
       "Achieved First Runner-Up as a team member in Hackstrom, demonstrating teamwork, fast problem-solving, and practical implementation skills under competitive hackathon constraints.",
     imageUrl: "/volunteer/hackstrom-runnerup.jpg",
-    githubUrl: "#",
-    twitterUrl: "#",
-    youtubeUrl: "#",
-    linkedinUrl: "#",
+    
   },
 ];
 
@@ -99,12 +89,7 @@ export function TestimonialCarousel({ className }: TestimonialCarouselProps) {
 
   const currentTestimonial = testimonials[currentIndex];
 
-  const socialIcons = [
-    { icon: Github, url: currentTestimonial.githubUrl, label: "GitHub" },
-    { icon: Twitter, url: currentTestimonial.twitterUrl, label: "Twitter" },
-    { icon: Youtube, url: currentTestimonial.youtubeUrl, label: "YouTube" },
-    { icon: Linkedin, url: currentTestimonial.linkedinUrl, label: "LinkedIn" },
-  ];
+  
 
   return (
     <div className={cn("w-full max-w-5xl mx-auto px-4", className)}>
@@ -158,20 +143,7 @@ export function TestimonialCarousel({ className }: TestimonialCarouselProps) {
                 {currentTestimonial.description}
               </p>
 
-              <div className="flex space-x-4">
-                {socialIcons.map(({ icon: IconComponent, url, label }) => (
-                  <Link
-                    key={label}
-                    href={url || "#"}
-                    target="_blank"
-                    rel="noopener noreferrer"
-                    className="w-12 h-12 bg-gray-900 dark:bg-gray-100 rounded-full flex items-center justify-center transition-colors hover:bg-gray-800 dark:hover:bg-gray-200 hover:scale-105 cursor-pointer"
-                    aria-label={label}
-                  >
-                    <IconComponent className="w-5 h-5 text-white dark:text-gray-900" />
-                  </Link>
-                ))}
-              </div>
+              
             </motion.div>
           </AnimatePresence>
         </div>
@@ -225,20 +197,7 @@ export function TestimonialCarousel({ className }: TestimonialCarouselProps) {
                 {currentTestimonial.description}
               </p>
 
-              <div className="flex justify-center space-x-4">
-                {socialIcons.map(({ icon: IconComponent, url, label }) => (
-                  <Link
-                    key={label}
-                    href={url || "#"}
-                    target="_blank"
-                    rel="noopener noreferrer"
-                    className="w-12 h-12 bg-gray-900 dark:bg-gray-100 rounded-full flex items-center justify-center transition-colors hover:bg-gray-800 dark:hover:bg-gray-200 cursor-pointer"
-                    aria-label={label}
-                  >
-                    <IconComponent className="w-5 h-5 text-white dark:text-gray-900" />
-                  </Link>
-                ))}
-              </div>
+             
             </motion.div>
           </AnimatePresence>
         </div>
