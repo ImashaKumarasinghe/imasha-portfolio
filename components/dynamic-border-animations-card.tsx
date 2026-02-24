@@ -87,9 +87,7 @@ const AnimatedCard = () => {
 
       {/* Content */}
       <div className="relative z-10 text-center">
-        <h1 className="text-2xl md:text-3xl font-bold mb-8 text-gray-800">
-          Education & Professional Background
-        </h1>
+        
 
         <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
           {institutions.map((item, index) => (
