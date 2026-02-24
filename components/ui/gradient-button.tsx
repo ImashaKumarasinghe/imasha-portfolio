@@ -9,10 +9,12 @@ const gradientButtonVariants = cva(
   [
     "gradient-button",
     "inline-flex items-center justify-center",
-    "rounded-[11px] min-w-[132px] px-9 py-4",
-    "text-base leading-[19px] font-[500] text-white",
-    "font-sans font-bold",
-    "focus-visible:outline-none focus-visible:ring-1 focus-visible:ring-ring",
+    "rounded-full h-[65px] px-10", // ✅ pill shape like screenshot
+    "overflow-hidden", // ✅ keeps gradient clean inside pill
+    "text-base leading-none font-semibold text-white",
+    "font-sans",
+    "shadow-[0_10px_25px_rgba(0,0,0,0.25)]", // ✅ soft shadow
+    "focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring",
     "disabled:pointer-events-none disabled:opacity-50",
   ],
   {
