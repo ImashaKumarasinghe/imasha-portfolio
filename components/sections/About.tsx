@@ -20,7 +20,7 @@ export default function About() {
         
         {/* LEFT COLUMN */}
         <div>
-          <div className="space-y-6"></div>
+          <div className="text-lg font-semibold mb-4 text-center">Education and Professional Background</div>
 
           {/* Animated Card */}
           <div className="mt-8">
@@ -30,6 +30,7 @@ export default function About() {
 
         {/* RIGHT COLUMN */}
         <div>
+          <div className="text-lg font-semibold mb-4 text-center">Volunteering & Achievements</div>
           {/* Profile/Testimonial Card */}
           <div className="mt-8">
             <TestimonialCarousel />
