@@ -30,26 +30,6 @@ export default function About() {
 
         {/* RIGHT COLUMN */}
         <div>
-          <h3 className="text-xl font-semibold mb-4">Volunteer Experience</h3>
-
-          <div className="space-y-6">
-            <div>
-              <h4 className="font-semibold">IEEE Women in Engineering (WIE)</h4>
-              <p className="text-sm text-gray-600">
-                Contributed to organizing technical workshops, hackathons, and
-                leadership programs aimed at empowering women in technology.
-              </p>
-            </div>
-
-            <div>
-              <h4 className="font-semibold">Event Organizer – PearlHack</h4>
-              <p className="text-sm text-gray-600">
-                Coordinated logistics, sponsorship communication, and participant
-                engagement for a national-level hackathon.
-              </p>
-            </div>
-          </div>
-
           {/* Profile/Testimonial Card */}
           <div className="mt-8">
             <TestimonialCarousel />
