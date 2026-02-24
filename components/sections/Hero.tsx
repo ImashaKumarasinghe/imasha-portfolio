@@ -3,6 +3,7 @@
 import Image from "next/image";
 import ThreeBackground from "../ThreeBackground";
 import { GradientButton } from "@/components/ui/gradient-button";
+import { ShinyButton } from "@/components/shiny-button";
 
 export default function Hero() {
   return (
@@ -44,11 +45,11 @@ export default function Hero() {
             </GradientButton>
 
             {/* Download CV */}
-            <GradientButton asChild>
-              <a href="/cv.pdf" target="_blank" rel="noopener noreferrer">
+            <a href="/cv.pdf" target="_blank" rel="noopener noreferrer">
+              <ShinyButton>
                 Download CV
-              </a>
-            </GradientButton>
+              </ShinyButton>
+            </a>
 
           </div>
         </div>
