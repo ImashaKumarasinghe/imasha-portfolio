@@ -157,3 +157,25 @@ body {
 }
 
 }
+/* ===== Global typography to match screenshot ===== */
+
+:root {
+  --font-geist-sans: ui-sans-serif, system-ui, -apple-system, "Segoe UI", Roboto,
+    Helvetica, Arial, "Apple Color Emoji", "Segoe UI Emoji";
+}
+
+/* Use Geist Sans as primary */
+body {
+  font-family: var(--font-geist-sans);
+  font-size: 16px;
+  line-height: 1.8;
+  letter-spacing: -0.01em;
+  color: #111827; /* near-black */
+}
+
+/* Paragraph style like your screenshot */
+p {
+  font-size: 18px;
+  line-height: 1.8;
+  color: #4b5563; /* soft gray */
+}
