@@ -1,6 +1,7 @@
 "use client";
 
 import React, { useEffect, useRef } from "react";
+import Image from "next/image";
 
 const AnimatedCard = () => {
   const topRef = useRef<HTMLDivElement>(null);
@@ -31,42 +32,53 @@ const AnimatedCard = () => {
   }, []);
 
   const institutions = [
-    "Sabaragamuwa University of Sri Lanka",
-    "LPEC Campus",
-    "Bandaranayake Central College – Veyangoda",
-    "Hatton National Bank",
+    {
+      name: "Sabaragamuwa University of Sri Lanka",
+      logo: "/logos/susl.png",
+    },
+    {
+      name: "LPEC Campus",
+      logo: "/logos/lpec.png",
+    },
+    {
+      name: "Bandaranayake Central College – Veyangoda",
+      logo: "/logos/vcc.png",
+    },
+    {
+      name: "Hatton National Bank",
+      logo: "/logos/hnb.png",
+    },
   ];
 
   return (
     <div className="relative w-full bg-[#b8ecf0] border border-gray-300 rounded-2xl p-10 overflow-hidden shadow-xl">
-
       {/* Animated Borders */}
       <div className="absolute top-0 left-0 w-full h-0.5 overflow-hidden">
         <div
           ref={topRef}
           className="absolute top-0 left-0 w-full h-full bg-gradient-to-r from-transparent via-blue-500/50 to-transparent"
-        ></div>
+        />
       </div>
 
       <div className="absolute top-0 right-0 w-0.5 h-full overflow-hidden">
         <div
           ref={rightRef}
           className="absolute top-0 left-0 w-full h-full bg-gradient-to-b from-transparent via-blue-500/50 to-transparent"
-        ></div>
+        />
       </div>
 
       <div className="absolute bottom-0 left-0 w-full h-0.5 overflow-hidden">
         <div
           ref={bottomRef}
           className="absolute top-0 left-0 w-full h-full bg-gradient-to-r from-transparent via-blue-500/50 to-transparent"
-        ></div>
+        />
       </div>
 
       <div className="absolute top-0 left-0 w-0.5 h-full overflow-hidden">
         <div
           ref={leftRef}
           className="absolute top-0 left-0 w-full h-full bg-gradient-to-b from-transparent via-blue-500/50 to-transparent"
-        ></div>
+        />
       </div>
 
       {/* Content */}
@@ -75,6 +87,7 @@ const AnimatedCard = () => {
           Education & Professional Background
         </h1>
 
+        {/* 2 cards per row on desktop */}
         <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
           {institutions.map((item, index) => (
             <div
@@ -82,18 +95,20 @@ const AnimatedCard = () => {
               className="bg-white/70 backdrop-blur-sm rounded-xl p-5 border border-gray-200 hover:border-blue-400 transition-all"
             >
               <div className="flex items-center gap-4">
-                
-                {/* Image Upload Field */}
-                <input
-                  type="file"
-                  accept="image/*"
-                  className="w-12 h-12 border border-gray-300 rounded-full cursor-pointer bg-white"
-                />
-
-                <div>
-                  <h3 className="font-semibold text-gray-800">{item}</h3>
+                {/* Logo Circle */}
+                <div className="w-12 h-12 rounded-full bg-white border border-gray-300 overflow-hidden flex items-center justify-center">
+                  <Image
+                    src={item.logo}
+                    alt={`${item.name} logo`}
+                    width={48}
+                    height={48}
+                    className="object-cover"
+                  />
                 </div>
 
+                <div className="text-left">
+                  <h3 className="font-semibold text-gray-800">{item.name}</h3>
+                </div>
               </div>
             </div>
           ))}
@@ -101,8 +116,8 @@ const AnimatedCard = () => {
       </div>
 
       {/* Decorative blur shapes */}
-      <div className="absolute -top-20 -right-20 w-40 h-40 rounded-full bg-blue-400/20 blur-xl"></div>
-      <div className="absolute -bottom-20 -left-20 w-40 h-40 rounded-full bg-blue-400/20 blur-xl"></div>
+      <div className="absolute -top-20 -right-20 w-40 h-40 rounded-full bg-blue-400/20 blur-xl" />
+      <div className="absolute -bottom-20 -left-20 w-40 h-40 rounded-full bg-blue-400/20 blur-xl" />
     </div>
   );
 };
