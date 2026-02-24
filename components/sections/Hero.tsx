@@ -1,5 +1,8 @@
+"use client";
+
 import Image from "next/image";
 import ThreeBackground from "../ThreeBackground";
+import { GradientButton } from "@/components/ui/gradient-button";
 
 export default function Hero() {
   return (
@@ -22,38 +25,33 @@ export default function Hero() {
             Software Engineering Undergraduate passionate about
             AI, Full-Stack Development, and building impactful systems.
           </p>
-          <div className="mt-8 flex flex-wrap gap-4">
-  
-  {/* Get in Touch */}
-  <a
-    href="#contact"
-    className="rounded-lg bg-blue-700 px-6 py-3 text-white font-medium shadow-md transition hover:bg-blue-800 hover:scale-105"
-  >
-    Get in Touch
-  </a>
 
-  {/* Projects */}
-  <a
-    href="#projects"
-    className="rounded-lg border border-blue-700 px-6 py-3 text-blue-700 font-medium transition hover:bg-blue-50 hover:scale-105"
-  >
-    Projects
-  </a>
+          {/* BUTTONS */}
+          <div className="mt-8 flex flex-wrap gap-6">
 
-  {/* Download CV */}
-  <a
-    href="/cv.pdf"
-    target="_blank"
-    rel="noopener noreferrer"
-    className="rounded-lg bg-gray-900 px-6 py-3 text-white font-medium shadow-md transition hover:bg-black hover:scale-105"
-  >
-    Download CV
-  </a>
+            {/* Get in Touch */}
+            <GradientButton asChild>
+              <a href="#contact">
+                Get in Touch
+              </a>
+            </GradientButton>
 
-</div>
-          
+            {/* Projects */}
+            <GradientButton variant="variant" asChild>
+              <a href="#projects">
+                Projects
+              </a>
+            </GradientButton>
+
+            {/* Download CV */}
+            <GradientButton asChild>
+              <a href="/cv.pdf" target="_blank" rel="noopener noreferrer">
+                Download CV
+              </a>
+            </GradientButton>
+
+          </div>
         </div>
-        
 
         {/* RIGHT SIDE - PHOTO */}
         <div className="-mt-16 mr-6 rounded-2xl overflow-hidden shadow-2xl">
@@ -66,7 +64,6 @@ export default function Hero() {
             className="object-cover"
           />
         </div>
-        
 
       </section>
     </main>
