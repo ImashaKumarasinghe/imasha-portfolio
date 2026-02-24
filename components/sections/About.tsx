@@ -17,7 +17,7 @@ export default function About() {
       <div className="mt-12 grid md:grid-cols-2 gap-12">
         {/* LEFT COLUMN */}
         <div>
-          <h3 className="text-xl font-semibold mb-4">Education & Work</h3>
+          
 
           <div className="space-y-6">
           </div>

@@ -33,52 +33,56 @@ const AnimatedCard = () => {
 
   const institutions = [
     {
-      name: "Sabaragamuwa University of Sri Lanka",
+      title: "Sabaragamuwa University of Sri Lanka",
       logo: "/logos/susl.png",
+      details: [
+        "B.Sc (Hons) in Software Engineering",
+        "Current GPA: 3.74",
+      ],
     },
     {
-      name: "LPEC Campus",
+      title: "LPEC Campus",
       logo: "/logos/lpec.png",
+      details: [
+        "Diploma in Human Resource Management",
+        "2021 - 2022",
+      ],
     },
     {
-      name: "Bandaranayake Central College – Veyangoda",
+      title: "Bandaranayake Central College – Veyangoda",
       logo: "/logos/vcc.png",
+      details: [
+        "Physical Science Stream",
+      ],
     },
     {
-      name: "Hatton National Bank",
+      title: "Hatton National Bank",
       logo: "/logos/hnb.png",
+      details: [
+        "Banking Internship",
+        
+      ],
     },
   ];
 
   return (
     <div className="relative w-full bg-[#b8ecf0] border border-gray-300 rounded-2xl p-10 overflow-hidden shadow-xl">
+
       {/* Animated Borders */}
       <div className="absolute top-0 left-0 w-full h-0.5 overflow-hidden">
-        <div
-          ref={topRef}
-          className="absolute top-0 left-0 w-full h-full bg-gradient-to-r from-transparent via-blue-500/50 to-transparent"
-        />
+        <div ref={topRef} className="absolute w-full h-full bg-gradient-to-r from-transparent via-blue-500/50 to-transparent" />
       </div>
 
       <div className="absolute top-0 right-0 w-0.5 h-full overflow-hidden">
-        <div
-          ref={rightRef}
-          className="absolute top-0 left-0 w-full h-full bg-gradient-to-b from-transparent via-blue-500/50 to-transparent"
-        />
+        <div ref={rightRef} className="absolute w-full h-full bg-gradient-to-b from-transparent via-blue-500/50 to-transparent" />
       </div>
 
       <div className="absolute bottom-0 left-0 w-full h-0.5 overflow-hidden">
-        <div
-          ref={bottomRef}
-          className="absolute top-0 left-0 w-full h-full bg-gradient-to-r from-transparent via-blue-500/50 to-transparent"
-        />
+        <div ref={bottomRef} className="absolute w-full h-full bg-gradient-to-r from-transparent via-blue-500/50 to-transparent" />
       </div>
 
       <div className="absolute top-0 left-0 w-0.5 h-full overflow-hidden">
-        <div
-          ref={leftRef}
-          className="absolute top-0 left-0 w-full h-full bg-gradient-to-b from-transparent via-blue-500/50 to-transparent"
-        />
+        <div ref={leftRef} className="absolute w-full h-full bg-gradient-to-b from-transparent via-blue-500/50 to-transparent" />
       </div>
 
       {/* Content */}
@@ -87,28 +91,38 @@ const AnimatedCard = () => {
           Education & Professional Background
         </h1>
 
-        {/* 2 cards per row on desktop */}
         <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
           {institutions.map((item, index) => (
             <div
               key={index}
-              className="bg-white/70 backdrop-blur-sm rounded-xl p-5 border border-gray-200 hover:border-blue-400 transition-all"
+              className="bg-white/80 backdrop-blur-sm rounded-xl p-6 border border-gray-200 hover:border-blue-400 transition-all"
             >
-              <div className="flex items-center gap-4">
-                {/* Logo Circle */}
-                <div className="w-12 h-12 rounded-full bg-white border border-gray-300 overflow-hidden flex items-center justify-center">
+              <div className="flex items-start gap-4">
+                
+                {/* Logo */}
+                <div className="w-14 h-14 rounded-full bg-white border border-gray-300 overflow-hidden flex items-center justify-center flex-shrink-0">
                   <Image
                     src={item.logo}
-                    alt={`${item.name} logo`}
-                    width={48}
-                    height={48}
+                    alt={`${item.title} logo`}
+                    width={50}
+                    height={50}
                     className="object-cover"
                   />
                 </div>
 
+                {/* Text Content */}
                 <div className="text-left">
-                  <h3 className="font-semibold text-gray-800">{item.name}</h3>
+                  <h3 className="font-semibold text-gray-800">
+                    {item.title}
+                  </h3>
+
+                  <ul className="mt-2 space-y-1 text-sm text-gray-700">
+                    {item.details.map((detail, i) => (
+                      <li key={i}>• {detail}</li>
+                    ))}
+                  </ul>
                 </div>
+
               </div>
             </div>
           ))}
