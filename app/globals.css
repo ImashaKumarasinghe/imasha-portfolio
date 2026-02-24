@@ -132,5 +132,17 @@ body {
   height: 100%;
   margin: 0;
 }
+.gradient-button {
+  background: linear-gradient(135deg, #2563eb, #7c3aed);
+  transition: all 0.3s ease;
+}
+
+.gradient-button:hover {
+  transform: scale(1.05);
+}
+
+.gradient-button-variant {
+  background: linear-gradient(135deg, #0ea5e9, #6366f1);
+}
 
 }
