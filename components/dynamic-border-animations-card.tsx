@@ -60,14 +60,14 @@ const AnimatedCard = () => {
       logo: "/logos/hnb.png",
       details: [
         "Banking Internship",
+        "2022 - 2023",
         
       ],
     },
   ];
 
   return (
-    <div className="relative w-full bg-[#b8ecf0] border border-gray-300 rounded-2xl p-10 overflow-hidden shadow-xl">
-
+    <div className="relative w-full min-h-[470px] bg-[#b8ecf0] border border-gray-300 rounded-2xl p-10 overflow-hidden shadow-xl">
       {/* Animated Borders */}
       <div className="absolute top-0 left-0 w-full h-0.5 overflow-hidden">
         <div ref={topRef} className="absolute w-full h-full bg-gradient-to-r from-transparent via-blue-500/50 to-transparent" />
@@ -114,7 +114,7 @@ const AnimatedCard = () => {
                     {item.title}
                   </h3>
 
-                  <ul className="mt-2 space-y-1 text-sm text-gray-700">
+                  <ul className="mt-2 space-y-1 text-base text-gray-700">
                     {item.details.map((detail, i) => (
                       <li key={i}>• {detail}</li>
                     ))}
