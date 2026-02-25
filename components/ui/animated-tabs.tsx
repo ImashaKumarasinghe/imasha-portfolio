@@ -16,51 +16,36 @@ interface AnimatedTabsProps {
   className?: string;
 }
 
-// ✅ Helper: small icon grid (uses local images from /public/tech)
-function IconGrid({
-  title,
-  description,
-  icons,
-}: {
-  title: string;
-  description: string;
-  icons: { name: string; src: string }[];
-}) {
+/** ✅ Icon grid: image + name under image */
+function IconGrid({ items }: { items: { name: string; src: string }[] }) {
   return (
-    <div className="w-full h-full">
-      <h2 className="text-2xl font-bold text-white mt-0 mb-2">{title}</h2>
-      <p className="text-sm text-white/80 mt-0 mb-5">{description}</p>
-
-      {/* small images grid */}
-      <div className="grid grid-cols-3 sm:grid-cols-4 gap-3">
-        {icons.map((item) => (
-          <div
-            key={item.name}
-            className="flex items-center gap-2 rounded-lg bg-white/10 px-3 py-2"
-          >
+    <div className="grid grid-cols-3 sm:grid-cols-4 gap-5 w-full">
+      {items.map((item) => (
+        <div
+          key={item.name}
+          className="flex flex-col items-center justify-center"
+        >
+          <div className="h-14 w-14 rounded-xl bg-white shadow-sm border border-gray-200 flex items-center justify-center overflow-hidden">
             <img
               src={item.src}
               alt={item.name}
-              className="h-7 w-7 object-contain"
+              className="h-10 w-10 object-contain"
             />
-            <span className="text-xs text-white/90">{item.name}</span>
           </div>
-        ))}
-      </div>
+          <p className="mt-2 text-sm text-black text-center">{item.name}</p>
+        </div>
+      ))}
     </div>
   );
 }
 
-// ✅ 6 default tabs
 const defaultTabs: Tab[] = [
   {
     id: "frontend",
     label: "Frontend",
     content: (
       <IconGrid
-        title="Frontend"
-        description="UI development, components, responsive layouts"
-        icons={[
+        items={[
           { name: "React", src: "/tech/react.png" },
           { name: "Next.js", src: "/tech/nextjs.png" },
           { name: "TypeScript", src: "/tech/typescript.png" },
@@ -76,9 +61,7 @@ const defaultTabs: Tab[] = [
     label: "Backend",
     content: (
       <IconGrid
-        title="Backend"
-        description="Secure APIs, authentication, business logic"
-        icons={[
+        items={[
           { name: "Node.js", src: "/tech/node.png" },
           { name: "Express", src: "/tech/express.png" },
           { name: "JWT", src: "/tech/jwt.png" },
@@ -94,9 +77,7 @@ const defaultTabs: Tab[] = [
     label: "Database",
     content: (
       <IconGrid
-        title="Database"
-        description="Data storage, modeling, queries"
-        icons={[
+        items={[
           { name: "MongoDB", src: "/tech/mongodb.png" },
           { name: "MySQL", src: "/tech/mysql.png" },
           { name: "Firebase", src: "/tech/firebase.png" },
@@ -110,9 +91,7 @@ const defaultTabs: Tab[] = [
     label: "AI / ML",
     content: (
       <IconGrid
-        title="AI / ML"
-        description="Model training, data processing, evaluation"
-        icons={[
+        items={[
           { name: "Python", src: "/tech/python.png" },
           { name: "NumPy", src: "/tech/numpy.png" },
           { name: "Pandas", src: "/tech/pandas.png" },
@@ -127,9 +106,7 @@ const defaultTabs: Tab[] = [
     label: "Tools",
     content: (
       <IconGrid
-        title="Tools"
-        description="Workflow & collaboration"
-        icons={[
+        items={[
           { name: "Git", src: "/tech/git.png" },
           { name: "GitHub", src: "/tech/github.png" },
           { name: "VS Code", src: "/tech/vscode.png" },
@@ -143,9 +120,7 @@ const defaultTabs: Tab[] = [
     label: "Mobile",
     content: (
       <IconGrid
-        title="Mobile"
-        description="Cross-platform mobile app development"
-        icons={[
+        items={[
           { name: "React Native", src: "/tech/react-native.png" },
           { name: "Expo", src: "/tech/expo.png" },
           { name: "Android", src: "/tech/android.png" },
@@ -165,21 +140,21 @@ const AnimatedTabs = ({
   if (!tabs?.length) return null;
 
   return (
-    <div className={cn("w-full max-w-lg flex flex-col gap-y-2", className)}>
-      {/* ✅ lighter background (more white-ish) */}
-      <div className="flex gap-2 flex-wrap bg-white/20 backdrop-blur-md p-2 rounded-xl border border-white/20">
+    <div className={cn("w-full max-w-4xl flex flex-col gap-y-3", className)}>
+      {/* ✅ Tabs bar (blue text) */}
+      <div className="flex gap-2 flex-wrap bg-white/80 p-2 rounded-xl border border-gray-200 shadow-sm">
         {tabs.map((tab) => (
           <button
             key={tab.id}
             onClick={() => setActiveTab(tab.id)}
             className={cn(
-              "relative px-3 py-1.5 text-sm font-medium rounded-lg text-white outline-none transition-colors"
+              "relative px-4 py-2 text-sm font-semibold rounded-lg outline-none transition-colors text-blue-700 hover:text-blue-800"
             )}
           >
             {activeTab === tab.id && (
               <motion.div
                 layoutId="active-tab"
-                className="absolute inset-0 bg-white/20 shadow-[0_0_20px_rgba(0,0,0,0.15)] backdrop-blur-md rounded-lg"
+                className="absolute inset-0 bg-blue-100 rounded-lg"
                 transition={{ type: "spring", duration: 0.6 }}
               />
             )}
@@ -188,26 +163,17 @@ const AnimatedTabs = ({
         ))}
       </div>
 
-      {/* ✅ lighter content background */}
-      <div className="p-5 bg-white/15 shadow-[0_0_20px_rgba(0,0,0,0.15)] text-white backdrop-blur-md rounded-xl border border-white/20 min-h-[280px]">
+      {/* ✅ Content box (light background + black text inside) */}
+      <div className="p-6 bg-white rounded-xl border border-gray-200 shadow-sm min-h-[280px]">
         {tabs.map(
           (tab) =>
             activeTab === tab.id && (
               <motion.div
                 key={tab.id}
-                initial={{
-                  opacity: 0,
-                  scale: 0.97,
-                  x: -10,
-                  filter: "blur(10px)",
-                }}
-                animate={{ opacity: 1, scale: 1, x: 0, filter: "blur(0px)" }}
-                exit={{ opacity: 0, scale: 0.97, x: -10, filter: "blur(10px)" }}
-                transition={{
-                  duration: 0.5,
-                  ease: "circInOut",
-                  type: "spring",
-                }}
+                initial={{ opacity: 0, scale: 0.98, x: -8 }}
+                animate={{ opacity: 1, scale: 1, x: 0 }}
+                exit={{ opacity: 0, scale: 0.98, x: -8 }}
+                transition={{ duration: 0.35, ease: "easeOut" }}
               >
                 {tab.content}
               </motion.div>
