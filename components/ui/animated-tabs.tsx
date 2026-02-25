@@ -52,6 +52,9 @@ const defaultTabs: Tab[] = [
           { name: "Tailwind", src: "/tech/tailwind.png" },
           { name: "HTML", src: "/tech/html.png" },
           { name: "CSS", src: "/tech/css.png" },
+          { name: "JavaScript", src: "/tech/js.png" },
+
+
         ]}
       />
     ),
@@ -64,10 +67,13 @@ const defaultTabs: Tab[] = [
         items={[
           { name: "Node.js", src: "/tech/node.png" },
           { name: "Express", src: "/tech/express.png" },
+          { name: "java", src: "/tech/java.png" },
+          { name: "Spring Boot", src: "/tech/spring-boot.png" },
           { name: "JWT", src: "/tech/jwt.png" },
           { name: "REST API", src: "/tech/api.png" },
           { name: "Axios", src: "/tech/axios.png" },
-          { name: "Postman", src: "/tech/postman.png" },
+
+          
         ]}
       />
     ),
@@ -80,8 +86,9 @@ const defaultTabs: Tab[] = [
         items={[
           { name: "MongoDB", src: "/tech/mongodb.png" },
           { name: "MySQL", src: "/tech/mysql.png" },
-          { name: "Firebase", src: "/tech/firebase.png" },
-          { name: "Mongoose", src: "/tech/mongoose.png" },
+          { name: "Supabase", src: "/tech/supabase.png" },
+          { name: "PostgreSQL", src: "/tech/postgray.png" },
+
         ]}
       />
     ),
@@ -97,6 +104,7 @@ const defaultTabs: Tab[] = [
           { name: "Pandas", src: "/tech/pandas.png" },
           { name: "TensorFlow", src: "/tech/tensorflow.png" },
           { name: "Keras", src: "/tech/keras.png" },
+          { name: "Kaggle", src: "/tech/kaggle.png" },
         ]}
       />
     ),
@@ -111,6 +119,12 @@ const defaultTabs: Tab[] = [
           { name: "GitHub", src: "/tech/github.png" },
           { name: "VS Code", src: "/tech/vscode.png" },
           { name: "Figma", src: "/tech/figma.png" },
+          { name: "Android Studio", src: "/tech/android-studio.png" },
+          { name: "Jira", src: "/tech/jira.png" },
+           { name: "Postman", src: "/tech/postman.png" },
+           { name: "Docker", src: "/tech/docker.png" },
+            { name: "linux", src: "/tech/linux.png" },
+          { name: "IntelliJ IDEA", src: "/tech/intelij.png" },
         ]}
       />
     ),
@@ -122,8 +136,8 @@ const defaultTabs: Tab[] = [
       <IconGrid
         items={[
           { name: "React Native", src: "/tech/react-native.png" },
-          { name: "Expo", src: "/tech/expo.png" },
-          { name: "Android", src: "/tech/android.png" },
+          { name: "Expo go", src: "/tech/expo go.png" },
+          
         ]}
       />
     ),
