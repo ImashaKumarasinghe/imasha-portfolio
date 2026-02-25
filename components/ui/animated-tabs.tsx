@@ -53,8 +53,6 @@ const defaultTabs: Tab[] = [
           { name: "HTML", src: "/tech/html.png" },
           { name: "CSS", src: "/tech/css.png" },
           { name: "JavaScript", src: "/tech/js.png" },
-
-
         ]}
       />
     ),
@@ -72,8 +70,6 @@ const defaultTabs: Tab[] = [
           { name: "JWT", src: "/tech/jwt.png" },
           { name: "REST API", src: "/tech/api.png" },
           { name: "Axios", src: "/tech/axios.png" },
-
-          
         ]}
       />
     ),
@@ -88,7 +84,6 @@ const defaultTabs: Tab[] = [
           { name: "MySQL", src: "/tech/mysql.png" },
           { name: "Supabase", src: "/tech/supabase.png" },
           { name: "PostgreSQL", src: "/tech/postgray.png" },
-
         ]}
       />
     ),
@@ -121,9 +116,9 @@ const defaultTabs: Tab[] = [
           { name: "Figma", src: "/tech/figma.png" },
           { name: "Android Studio", src: "/tech/android-studio.png" },
           { name: "Jira", src: "/tech/jira.png" },
-           { name: "Postman", src: "/tech/postman.png" },
-           { name: "Docker", src: "/tech/docker.png" },
-            { name: "linux", src: "/tech/linux.png" },
+          { name: "Postman", src: "/tech/postman.png" },
+          { name: "Docker", src: "/tech/docker.png" },
+          { name: "linux", src: "/tech/linux.png" },
           { name: "IntelliJ IDEA", src: "/tech/intelij.png" },
         ]}
       />
@@ -137,7 +132,6 @@ const defaultTabs: Tab[] = [
         items={[
           { name: "React Native", src: "/tech/react-native.png" },
           { name: "Expo go", src: "/tech/expo go.png" },
-          
         ]}
       />
     ),
@@ -155,8 +149,8 @@ const AnimatedTabs = ({
 
   return (
     <div className={cn("w-full max-w-4xl flex flex-col gap-y-3", className)}>
-      {/* ✅ Tabs bar (blue text) */}
-      <div className="flex gap-2 flex-wrap bg-white/80 p-2 rounded-xl border border-gray-200 shadow-sm">
+      {/* ✅ Tabs bar background changed to #fafafa */}
+      <div className="flex gap-2 flex-wrap bg-[#fafafa] p-2 rounded-xl border border-gray-200 shadow-sm">
         {tabs.map((tab) => (
           <button
             key={tab.id}
@@ -177,8 +171,8 @@ const AnimatedTabs = ({
         ))}
       </div>
 
-      {/* ✅ Content box (light background + black text inside) */}
-      <div className="p-6 bg-white rounded-xl border border-gray-200 shadow-sm min-h-[280px]">
+      {/* ✅ Content box background changed to #fafafa */}
+      <div className="p-6 bg-[#fafafa] rounded-xl border border-gray-200 shadow-sm min-h-[280px]">
         {tabs.map(
           (tab) =>
             activeTab === tab.id && (
