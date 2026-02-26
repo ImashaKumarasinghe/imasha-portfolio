@@ -11,7 +11,7 @@ export default function Projects() {
   description:
     "Gemora is an AI-powered digital gemstone trading platform designed to improve trust, transparency, and efficiency in gemstone auctions and trading. It features secure auction systems, verified gemstone listings, AI-based gemstone image analysis using EfficientNetB0 with TensorFlow and Keras, and an intelligent Gemini Flash–powered chatbot to assist users with gemstone insights and platform navigation.",
   
-  imageSrc: "/projects/gem.png",
+  imageSrc: "/projects/gemora1.png",
 
   tech: [
     "React.js",
