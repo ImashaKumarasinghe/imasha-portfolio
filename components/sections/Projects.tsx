@@ -6,31 +6,61 @@ import ProjectWaveCard from "../schema-card-with-animated-wave-visualizer";
 export default function Projects() {
   const projects = [
     {
-      tag: "AI + Marketplace",
-      title: "Gemora (Capstone)",
-      description:
-        "AI-enhanced gemstone marketplace with auctions, authentication, and trust mechanisms.",
-      imageSrc: "/projects/gemora1.png",
-      tech: ["Next.js", "AI", "Node.js"],
-      ctaText: "View Project",
-      href: "#",
-      status: "In Progress",
-      demoUrl: "#",
-      codeUrl: "#",
-    },
+  tag: "AI + Marketplace",
+  title: "Gemora — Smart Digital Gemstone Trading Platform",
+  description:
+    "Gemora is an AI-powered digital gemstone trading platform designed to improve trust, transparency, and efficiency in gemstone auctions and trading. It features secure auction systems, verified gemstone listings, AI-based gemstone image analysis using EfficientNetB0 with TensorFlow and Keras, and an intelligent Gemini Flash–powered chatbot to assist users with gemstone insights and platform navigation.",
+  
+  imageSrc: "/projects/gem.png",
+
+  tech: [
+    "React.js",
+    "React Native",
+    "Expo",
+    "Spring Boot",
+    "Spring Security",
+    "MySQL",
+    "TensorFlow",
+    "Keras",
+    "Python",
+    "Flask",
+    "JWT",
+    "TypeScript"
+  ],
+
+  status: "Completed",
+
+  demoUrl: "https://www.linkedin.com/posts/imasha-kumarasinghe-8413b72b4_gemora-capstoneproject-ai-activity-7407059545442717696-5ngJ?utm_source=share&utm_medium=member_desktop&rcm=ACoAAEuFkvEBBdXFovMOttBane1TPAfWO4CLPRo",   
+  codeUrl: "https://github.com/stars/ImashaKumarasinghe/lists/gemora",   // Server repo
+  
+  ctaText: "View Project",
+  href: "#"
+},
     {
-      tag: "Web App",
-      title: "Portfolio Website",
-      description:
-        "Next.js portfolio with modern UI components, animations, and clean sections.",
-      imageSrc: "/portfolio.png",
-      tech: ["Next.js", "React", "Tailwind CSS"],
-      ctaText: "View Live",
-      href: "#",
-      status: "Live",
-      demoUrl: "#",
-      codeUrl: "#",
-    },
+  tag: "Full Stack E-Commerce",
+  title: "ISH Cosmetics — MERN Stack E-Commerce Platform",
+  description:
+    "ISH Cosmetics is a full-stack MERN e-commerce platform designed to provide a secure and seamless online cosmetics shopping experience. It features JWT authentication, Google login, role-based access control, admin product and order management, integrated chatbot support, and a responsive UI. The system is deployed using modern cloud infrastructure with separate frontend and backend hosting.",
+  imageSrc: "/projects/ish.png",
+  tech: [
+    "React.js",
+    "Node.js",
+    "Express.js",
+    "MongoDB",
+    "Supabase",
+    "JWT",
+    "Google Auth",
+    "bcrypt",
+    "vercel",
+    "render",
+  ],
+  ctaText: "View Project",
+  href: "#",
+  status: "Completed",
+
+  demoUrl: "https://www.linkedin.com/posts/imasha-kumarasinghe-8413b72b4_mernstack-fullstackdevelopment-webdevelopment-activity-7423427758317412352-uakH?utm_source=share&utm_medium=member_desktop&rcm=ACoAAEuFkvEBBdXFovMOttBane1TPAfWO4CLPRo",   // frontend demo (Vercel)
+  codeUrl: "https://github.com/stars/ImashaKumarasinghe/lists/ish-cosmatics",  
+},
     {
   tag: "Web Application",
   title: "Project Supervision Management System (PSMS)",
@@ -61,7 +91,7 @@ export default function Projects() {
   ],
   ctaText: "View Project",
   href: "#",
-  status: "Completed",
+  status: "Ongoing",
   demoUrl: "#https://www.linkedin.com/posts/imasha-kumarasinghe-8413b72b4_webdevelopment-fullstack-nextjs-activity-7425038383300882432-aG01?utm_source=share&utm_medium=member_desktop&rcm=ACoAAEuFkvEBBdXFovMOttBane1TPAfWO4CLPRo",   // add your demo link
   codeUrl: "https://github.com/stars/ImashaKumarasinghe/lists/paw-track",   // add your GitHub repo link
 },
