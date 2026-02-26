@@ -6,18 +6,36 @@ import ProjectWaveCard from "../schema-card-with-animated-wave-visualizer";
 export default function Projects() {
   const projects = [
     {
-      tag: "AI + Marketplace",
-      title: "Gemora (Capstone)",
-      description:
-        "AI-enhanced gemstone marketplace with auctions, authentication, and trust mechanisms.",
-      imageSrc: "/projects/gemora1.png",
-      tech: ["Next.js", "AI", "Node.js"],
-      ctaText: "View Project",
-      href: "#",
-      status: "In Progress",
-      demoUrl: "#",
-      codeUrl: "#",
-    },
+  tag: "AI + Marketplace",
+  title: "Gemora — Smart Digital Gemstone Trading Platform",
+  description:
+    "Gemora is an AI-powered digital gemstone trading platform designed to improve trust, transparency, and efficiency in gemstone auctions and trading. It features secure auction systems, verified gemstone listings, AI-based gemstone image analysis using EfficientNetB0 with TensorFlow and Keras, and an intelligent Gemini Flash–powered chatbot to assist users with gemstone insights and platform navigation.",
+  
+  imageSrc: "/projects/gem.png",
+
+  tech: [
+    "React.js",
+    "React Native",
+    "Expo",
+    "Spring Boot",
+    "Spring Security",
+    "MySQL",
+    "TensorFlow",
+    "Keras",
+    "Python",
+    "Flask",
+    "JWT",
+    "TypeScript"
+  ],
+
+  status: "Completed",
+
+  demoUrl: "https://www.linkedin.com/posts/imasha-kumarasinghe-8413b72b4_gemora-capstoneproject-ai-activity-7407059545442717696-5ngJ?utm_source=share&utm_medium=member_desktop&rcm=ACoAAEuFkvEBBdXFovMOttBane1TPAfWO4CLPRo",   
+  codeUrl: "https://github.com/stars/ImashaKumarasinghe/lists/gemora",   // Server repo
+  
+  ctaText: "View Project",
+  href: "#"
+},
     {
   tag: "Full Stack E-Commerce",
   title: "ISH Cosmetics — MERN Stack E-Commerce Platform",
