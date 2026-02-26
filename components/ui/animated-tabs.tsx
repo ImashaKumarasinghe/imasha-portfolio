@@ -118,6 +118,7 @@ const AnimatedTabs = ({
       { name: "Express", src: "/tech/express.png" },
       { name: "java", src: "/tech/java.png" },
       { name: "Spring Boot", src: "/tech/spring-boot.png" },
+      { name: "Python", src: "/tech/python.png" },
     ],
     database: [
       { name: "MongoDB", src: "/tech/mongodb.png" },
