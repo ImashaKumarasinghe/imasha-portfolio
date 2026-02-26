@@ -42,7 +42,7 @@ export default function Contact() {
                 <div>
                   <p className="text-sm font-semibold text-white">Email</p>
                   <p className="text-sm text-white/70">
-                    imasha.yourmail@gmail.com
+                    imakumarasinghe00@gmail.com
                   </p>
                 </div>
               </div>
@@ -54,7 +54,7 @@ export default function Contact() {
                 </div>
                 <div>
                   <p className="text-sm font-semibold text-white">Phone</p>
-                  <p className="text-sm text-white/70">+94 XX XXX XXXX</p>
+                  <p className="text-sm text-white/70">+94 76 573 5091</p>
                 </div>
               </div>
 
@@ -76,18 +76,18 @@ export default function Contact() {
 
               <div className="mt-4 flex flex-wrap gap-3">
                 <SocialIcon
-                  href="#"
+                  href="https://www.linkedin.com/in/imasha-kumarasinghe-8413b72b4/"
                   label="LinkedIn"
                   icon={<Linkedin className="h-5 w-5" />}
                 />
                 <SocialIcon
-                  href="#"
+                  href="https://github.com/ImashaKumarasinghe"
                   label="GitHub"
                   icon={<Github className="h-5 w-5" />}
                 />
                 <SocialIcon
                   href="#"
-                  label="Instagram"
+                  label=""
                   icon={<Instagram className="h-5 w-5" />}
                 />
               </div>
@@ -104,8 +104,8 @@ export default function Contact() {
               className="mt-7 space-y-5"
               onSubmit={(e) => e.preventDefault()}
             >
-              {/* Name + Email */}
-              <div className="grid gap-4 md:grid-cols-2">
+              {/* Name  */}
+              <div >
                 <Field label="Name">
                   <input
                     className="w-full rounded-xl border border-white/10 bg-black/30 px-4 py-3 text-sm text-white placeholder:text-white/40 outline-none focus:border-blue-400/60 focus:ring-2 focus:ring-blue-500/20"
@@ -113,20 +113,13 @@ export default function Contact() {
                   />
                 </Field>
 
-                <Field label="Email">
-                  <input
-                    type="email"
-                    className="w-full rounded-xl border border-white/10 bg-black/30 px-4 py-3 text-sm text-white placeholder:text-white/40 outline-none focus:border-blue-400/60 focus:ring-2 focus:ring-blue-500/20"
-                    placeholder="your.email@example.com"
-                  />
-                </Field>
               </div>
 
-              {/* Subject */}
-              <Field label="Subject">
+              {/* email */}
+              <Field label="Email">
                 <input
                   className="w-full rounded-xl border border-white/10 bg-black/30 px-4 py-3 text-sm text-white placeholder:text-white/40 outline-none focus:border-blue-400/60 focus:ring-2 focus:ring-blue-500/20"
-                  placeholder="What's this about?"
+                  placeholder="your.email@example.com"
                 />
               </Field>
 
@@ -147,12 +140,6 @@ export default function Contact() {
                 <Send className="h-4 w-4 transition group-hover:-translate-y-[1px]" />
                 Send Message
               </button>
-
-              {/* small note */}
-              <p className="text-xs text-white/40">
-                (This is UI only. If you want real sending, I’ll help you connect
-                EmailJS / Formspree / your backend.)
-              </p>
             </form>
           </div>
         </div>
