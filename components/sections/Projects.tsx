@@ -45,18 +45,26 @@ export default function Projects() {
   codeUrl: "https://github.com/web-projet-4th-sem/Email_MS.git",   // put your GitHub repo link
 },
     {
-      tag: "Mobile App",
-      title: "Recipe App",
-      description:
-        "React app with search, meal cards, and detailed meal pages with clean UI.",
-      imageSrc: "/recipe.png",
-      tech: ["React", "JavaScript", "API"],
-      ctaText: "View Repo",
-      href: "#",
-      status: "Completed",
-      demoUrl: "#",
-      codeUrl: "#",
-    },
+  tag: "Full Stack Web Application",
+  title: "PawTrack — Street Pet Care & Adoption Platform",
+  description:
+    "PawTrack is a full-stack web application designed to help street pets find care and homes. It allows users to report pets with photo and location, adopt animals securely, and receive guidance through an integrated chatbot. The platform improves transparency and enables faster action for animal welfare through a modern, responsive interface.",
+  imageSrc: "/projects/pawtrack1.png",
+  tech: [
+    "Next.js",
+    "TypeScript",
+    "Tailwind CSS",
+    "FastAPI",
+    "PostgreSQL",
+    "Supabase",
+    "JWT",
+  ],
+  ctaText: "View Project",
+  href: "#",
+  status: "Completed",
+  demoUrl: "#https://www.linkedin.com/posts/imasha-kumarasinghe-8413b72b4_webdevelopment-fullstack-nextjs-activity-7425038383300882432-aG01?utm_source=share&utm_medium=member_desktop&rcm=ACoAAEuFkvEBBdXFovMOttBane1TPAfWO4CLPRo",   // add your demo link
+  codeUrl: "https://github.com/stars/ImashaKumarasinghe/lists/paw-track",   // add your GitHub repo link
+},
   ];
 
   return (
