@@ -1,170 +1,125 @@
 "use client";
 
-import React, { useEffect, useRef } from "react";
+import React from "react";
+import Image from "next/image";
 
-type ProjectWaveCardProps = {
-  tag: string;
+type ProjectCardProps = {
   title: string;
   description: string;
-  ctaText: string;
-  href: string;
-  status?: string;
+
+  // top image (put inside /public/projects/)
+  imageSrc: string;
+
+  // tech chips
+  tech: string[];
+
+  // links
+  demoUrl?: string;
+  codeUrl?: string;
 };
 
 export default function ProjectWaveCard({
-  tag,
   title,
   description,
-  ctaText,
-  href,
-  status = "Live",
-}: ProjectWaveCardProps) {
-  const canvasRef = useRef<HTMLCanvasElement | null>(null);
-
-  useEffect(() => {
-    const canvas = canvasRef.current;
-    if (!canvas) return;
-
-    const ctx = canvas.getContext("2d");
-    if (!ctx) return;
-
-    let time = 0;
-
-    const waveData = Array.from({ length: 8 }).map(() => ({
-      value: Math.random() * 0.5 + 0.1,
-      targetValue: Math.random() * 0.5 + 0.1,
-      speed: Math.random() * 0.02 + 0.01,
-    }));
-
-    const resizeCanvas = () => {
-      const parent = canvas.parentElement;
-      if (!parent) return;
-      canvas.width = parent.clientWidth;
-      canvas.height = parent.clientHeight;
-    };
-
-    const updateWaveData = () => {
-      waveData.forEach((data) => {
-        if (Math.random() < 0.01) data.targetValue = Math.random() * 0.7 + 0.1;
-        const diff = data.targetValue - data.value;
-        data.value += diff * data.speed;
-      });
-    };
-
-    const draw = () => {
-      ctx.clearRect(0, 0, canvas.width, canvas.height);
-
-      // dark panel background
-      ctx.fillStyle = "rgba(0,0,0,1)";
-      ctx.fillRect(0, 0, canvas.width, canvas.height);
-
-      waveData.forEach((data, i) => {
-        const freq = data.value * 7;
-        ctx.beginPath();
-
-        for (let x = 0; x < canvas.width; x++) {
-          const nx = (x / canvas.width) * 2 - 1;
-          const px = nx + i * 0.04 + freq * 0.03;
-          const py =
-            Math.sin(px * 10 + time) *
-            Math.cos(px * 2) *
-            freq *
-            0.1 *
-            ((i + 1) / 8);
-          const y = (py + 1) * canvas.height * 0.5;
-
-          x === 0 ? ctx.moveTo(x, y) : ctx.lineTo(x, y);
-        }
-
-        const intensity = Math.min(1, freq * 0.3);
-        const r = 79 + intensity * 100;
-        const g = 70 + intensity * 130;
-        const b = 229;
-
-        ctx.lineWidth = 1 + i * 0.3;
-        ctx.strokeStyle = `rgba(${r},${g},${b},0.6)`;
-        ctx.shadowColor = `rgba(${r},${g},${b},0.5)`;
-        ctx.shadowBlur = 5;
-        ctx.stroke();
-        ctx.shadowBlur = 0;
-      });
-    };
-
-    let raf = 0;
-    const animate = () => {
-      time += 0.02;
-      updateWaveData();
-      draw();
-      raf = requestAnimationFrame(animate);
-    };
-
-    resizeCanvas();
-    window.addEventListener("resize", resizeCanvas);
-    animate();
-
-    return () => {
-      cancelAnimationFrame(raf);
-      window.removeEventListener("resize", resizeCanvas);
-    };
-  }, []);
-
+  imageSrc,
+  tech,
+  demoUrl,
+  codeUrl,
+}: ProjectCardProps) {
   return (
-    <div className="relative rounded-2xl overflow-hidden border border-white/10 bg-black shadow-lg">
-      {/* visual area */}
-      <div className="relative h-44">
-        <canvas ref={canvasRef} className="absolute inset-0 h-full w-full" />
-
-        {/* subtle grid overlay */}
-        <div
-          className="absolute inset-0 opacity-10"
-          style={{
-            backgroundImage:
-              "linear-gradient(90deg, rgba(255,255,255,0.3) 1px, transparent 1px), linear-gradient(rgba(255,255,255,0.3) 1px, transparent 1px)",
-            backgroundSize: "15px 15px",
-          }}
+    <div className="rounded-2xl overflow-hidden border border-gray-200 bg-white shadow-sm hover:shadow-md transition">
+      {/* ✅ Top Image */}
+      <div className="relative w-full h-44">
+        <Image
+          src={imageSrc}
+          alt={title}
+          fill
+          className="object-cover"
+          priority={false}
         />
       </div>
 
-      <div className="h-px w-full bg-gradient-to-r from-transparent via-white/20 to-transparent" />
-
-      {/* content */}
+      {/* ✅ Content */}
       <div className="p-5">
-        <span className="inline-block px-3 py-1 rounded-full text-xs font-medium mb-3 border border-indigo-400/30 text-indigo-300 bg-white/5">
-          {tag}
-        </span>
+        <h3 className="text-lg font-semibold text-gray-900">{title}</h3>
 
-        <h3 className="text-lg font-semibold text-white mb-2">{title}</h3>
-
-        <p className="text-white/70 text-sm leading-relaxed mb-4">
+        <p className="mt-2 text-sm text-gray-600 leading-relaxed line-clamp-3">
           {description}
         </p>
 
-        <div className="flex items-center justify-between">
-          <a
-            href={href}
-            target="_blank"
-            rel="noopener noreferrer"
-            className="text-indigo-300 hover:text-indigo-200 transition flex items-center text-sm font-medium px-3 py-2 rounded-lg border border-indigo-400/30 bg-white/5"
-          >
-            {ctaText}
-            <svg
-              className="w-4 h-4 ml-1"
-              viewBox="0 0 24 24"
-              fill="none"
+        {/* ✅ Tech Chips */}
+        <div className="mt-4 flex flex-wrap gap-2">
+          {tech.map((t) => (
+            <span
+              key={t}
+              className="px-3 py-1 text-xs rounded-full bg-gray-100 text-gray-700 border border-gray-200"
             >
-              <path
-                d="M5 12H19M19 12L12 5M19 12L12 19"
-                stroke="currentColor"
-                strokeWidth={2}
-                strokeLinecap="round"
-                strokeLinejoin="round"
-              />
-            </svg>
-          </a>
+              {t}
+            </span>
+          ))}
+        </div>
 
-          <span className="text-white/60 text-xs px-2 py-1 rounded-full border border-white/10 bg-white/5">
-            {status}
-          </span>
+        {/* ✅ Buttons */}
+        <div className="mt-5 flex gap-3">
+          {/* Demo Button */}
+          {demoUrl && (
+            <a
+              href={demoUrl}
+              target="_blank"
+              rel="noopener noreferrer"
+              className="inline-flex items-center gap-2 rounded-lg bg-gray-900 text-white px-4 py-2 text-sm font-medium hover:bg-black transition"
+            >
+              {/* icon */}
+              <svg
+                className="w-4 h-4"
+                viewBox="0 0 24 24"
+                fill="none"
+              >
+                <path
+                  d="M14 3h7v7"
+                  stroke="currentColor"
+                  strokeWidth="2"
+                  strokeLinecap="round"
+                  strokeLinejoin="round"
+                />
+                <path
+                  d="M10 14L21 3"
+                  stroke="currentColor"
+                  strokeWidth="2"
+                  strokeLinecap="round"
+                  strokeLinejoin="round"
+                />
+                <path
+                  d="M21 14v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h6"
+                  stroke="currentColor"
+                  strokeWidth="2"
+                  strokeLinecap="round"
+                  strokeLinejoin="round"
+                />
+              </svg>
+              Demo
+            </a>
+          )}
+
+          {/* Code Button */}
+          {codeUrl && (
+            <a
+              href={codeUrl}
+              target="_blank"
+              rel="noopener noreferrer"
+              className="inline-flex items-center gap-2 rounded-lg border border-gray-300 bg-white px-4 py-2 text-sm font-medium text-gray-800 hover:bg-gray-50 transition"
+            >
+              {/* github icon */}
+              <svg
+                className="w-4 h-4"
+                viewBox="0 0 24 24"
+                fill="currentColor"
+              >
+                <path d="M12 .5C5.7.5.5 5.7.5 12c0 5.1 3.3 9.4 7.9 10.9.6.1.8-.3.8-.6v-2.3c-3.2.7-3.9-1.4-3.9-1.4-.5-1.3-1.2-1.6-1.2-1.6-1-.7.1-.7.1-.7 1.1.1 1.7 1.1 1.7 1.1 1 1.7 2.7 1.2 3.3.9.1-.7.4-1.2.7-1.5-2.6-.3-5.3-1.3-5.3-5.8 0-1.3.5-2.4 1.2-3.3-.1-.3-.5-1.5.1-3.1 0 0 1-.3 3.3 1.2 1-.3 2-.4 3-.4s2 .1 3 .4c2.3-1.5 3.3-1.2 3.3-1.2.6 1.6.2 2.8.1 3.1.8.9 1.2 2 1.2 3.3 0 4.5-2.7 5.5-5.3 5.8.4.4.8 1.1.8 2.2v3.3c0 .3.2.7.8.6 4.6-1.5 7.9-5.8 7.9-10.9C23.5 5.7 18.3.5 12 .5z" />
+              </svg>
+              Code
+            </a>
+          )}
         </div>
       </div>
     </div>
