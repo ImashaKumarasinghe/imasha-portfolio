@@ -16,9 +16,10 @@ export default function Header() {
 
         {/* Navigation Links */}
         <nav className="hidden md:flex gap-6 text-sm font-medium">
+          <a href="#hero" className="hover:text-blue-600">Home</a>
           <a href="#about" className="hover:text-blue-600">About</a>
           <a href="#projects" className="hover:text-blue-600">Projects</a>
-          <a href="#achievements" className="hover:text-blue-600">Achievements</a>
+          
           <a href="#contact" className="hover:text-blue-600">Contact</a>
         </nav>
 
