@@ -98,7 +98,7 @@ export default function Projects() {
   ];
 
   return (
-    <section id="projects" className="mx-auto max-w-7xl px-6 py-16">
+    <section id="projects" className="mx-auto max-w-1200px px-6 py-16">
       <div className="text-center">
         <h2 className="text-2xl font-semibold">Projects</h2>
         <p className="mt-3 text-gray-600 mx-auto max-w-3xl">
