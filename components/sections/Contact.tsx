@@ -12,6 +12,8 @@ import {
   Instagram,
 } from "lucide-react";
 
+const FORMSPREE_URL = "https://formspree.io/f/xeelnnob"; 
+
 export default function Contact() {
   return (
     <section id="contact" className="relative py-20">
@@ -100,47 +102,47 @@ export default function Contact() {
               Send me a message
             </h3>
 
-            <form
-              className="mt-7 space-y-5"
-              onSubmit={(e) => e.preventDefault()}
-            >
-              {/* Name  */}
-              <div >
-                <Field label="Name">
-                  <input
-                    className="w-full rounded-xl border border-white/10 bg-black/30 px-4 py-3 text-sm text-white placeholder:text-white/40 outline-none focus:border-blue-400/60 focus:ring-2 focus:ring-blue-500/20"
-                    placeholder="Your name"
-                  />
-                </Field>
+            <form className="mt-7 space-y-5" action={FORMSPREE_URL} method="POST">
+  <Field label="Name">
+    <input
+      name="name"
+      required
+      className="w-full rounded-xl border border-white/10 bg-black/30 px-4 py-3 text-sm text-white placeholder:text-white/40 outline-none focus:border-blue-400/60 focus:ring-2 focus:ring-blue-500/20"
+      placeholder="Your name"
+    />
+  </Field>
 
-              </div>
+  <Field label="Email">
+    <input
+      name="email"
+      type="email"
+      required
+      className="w-full rounded-xl border border-white/10 bg-black/30 px-4 py-3 text-sm text-white placeholder:text-white/40 outline-none focus:border-blue-400/60 focus:ring-2 focus:ring-blue-500/20"
+      placeholder="your.email@example.com"
+    />
+  </Field>
 
-              {/* email */}
-              <Field label="Email">
-                <input
-                  className="w-full rounded-xl border border-white/10 bg-black/30 px-4 py-3 text-sm text-white placeholder:text-white/40 outline-none focus:border-blue-400/60 focus:ring-2 focus:ring-blue-500/20"
-                  placeholder="your.email@example.com"
-                />
-              </Field>
+  <Field label="Message">
+    <textarea
+      name="message"
+      required
+      rows={5}
+      className="w-full resize-none rounded-xl border border-white/10 bg-black/30 px-4 py-3 text-sm text-white placeholder:text-white/40 outline-none focus:border-blue-400/60 focus:ring-2 focus:ring-blue-500/20"
+      placeholder="Tell me about your project..."
+    />
+  </Field>
 
-              {/* Message */}
-              <Field label="Message">
-                <textarea
-                  rows={5}
-                  className="w-full resize-none rounded-xl border border-white/10 bg-black/30 px-4 py-3 text-sm text-white placeholder:text-white/40 outline-none focus:border-blue-400/60 focus:ring-2 focus:ring-blue-500/20"
-                  placeholder="Tell me about your project..."
-                />
-              </Field>
+  <input type="hidden" name="_subject" value="New message from portfolio" />
+  <input type="hidden" name="_captcha" value="false" />
 
-              {/* Button */}
-              <button
-                type="submit"
-                className="group mt-2 flex w-full items-center justify-center gap-2 rounded-xl bg-gradient-to-r from-purple-600 to-blue-600 px-5 py-3 text-sm font-semibold text-white shadow-lg shadow-blue-500/10 transition hover:brightness-110 active:scale-[0.99]"
-              >
-                <Send className="h-4 w-4 transition group-hover:-translate-y-[1px]" />
-                Send Message
-              </button>
-            </form>
+  <button
+    type="submit"
+    className="group mt-2 flex w-full items-center justify-center gap-2 rounded-xl bg-gradient-to-r from-purple-600 to-blue-600 px-5 py-3 text-sm font-semibold text-white shadow-lg shadow-blue-500/10 transition hover:brightness-110 active:scale-[0.99]"
+  >
+    <Send className="h-4 w-4 transition group-hover:-translate-y-[1px]" />
+    Send Message
+  </button>
+</form>
           </div>
         </div>
       </div>
