@@ -10,9 +10,13 @@ import {
   Github,
   Linkedin,
   Instagram,
+  Facebook,
 } from "lucide-react";
 
-const FORMSPREE_URL = "https://formspree.io/f/xeelnnob"; 
+// Medium icon is not in lucide-react, so we use react-icons
+import { FaMedium } from "react-icons/fa";
+
+const FORMSPREE_URL = "https://formspree.io/f/xeelnnob";
 
 export default function Contact() {
   return (
@@ -25,16 +29,20 @@ export default function Contact() {
 
       <div className="mx-auto max-w-6xl px-6">
         <h2 className="text-3xl md:text-4xl font-bold text-center">
-  Get in <span className="text-blue-600">Touch</span>
-</h2>
+          Get in <span className="text-blue-600">Touch</span>
+        </h2>
+
         <div className="grid gap-10 lg:grid-cols-2">
           {/* LEFT */}
           <div>
-            <h2 className="text-3xl font-semibold text-white">Get in Touch</h2>
+            <h2 className="text-3xl font-semibold text-white">
+              Get in Touch
+            </h2>
+
             <p className="mt-4 max-w-xl text-sm leading-7 text-white/70">
-              Whether you&apos;re looking for a skilled developer for your next
+              Whether you're looking for a skilled developer for your next
               project, want to collaborate on innovative solutions, or just want
-              to say hello, I&apos;d love to hear from you.
+              to say hello, I'd love to hear from you.
             </p>
 
             <div className="mt-8 space-y-5">
@@ -76,75 +84,98 @@ export default function Contact() {
 
             {/* Follow */}
             <div className="mt-10">
-              <p className="text-sm font-semibold text-white/90">Follow me on</p>
+              <p className="text-sm font-semibold text-white/90">
+                Follow me on
+              </p>
 
+              {/* COLORED SOCIAL ICONS */}
               <div className="mt-4 flex flex-wrap gap-3">
+
+                {/* LinkedIn */}
                 <SocialIcon
                   href="https://www.linkedin.com/in/imasha-kumarasinghe-8413b72b4/"
                   label="LinkedIn"
-                  icon={<Linkedin className="h-5 w-5" />}
+                  icon={<Linkedin className="h-5 w-5 text-[#0077B5]" />}
+                  hover="hover:bg-[#0077B5]/20"
                 />
+
+                {/* GitHub */}
                 <SocialIcon
                   href="https://github.com/ImashaKumarasinghe"
                   label="GitHub"
-                  icon={<Github className="h-5 w-5" />}
+                  icon={<Github className="h-5 w-5 text-[#181717]" />}
+                  hover="hover:bg-white/20"
                 />
+
+             
+
+                {/* Medium */}
                 <SocialIcon
                   href="#"
-                  label=""
-                  icon={<Instagram className="h-5 w-5" />}
+                  label="Medium"
+                  icon={<FaMedium className="h-5 w-5 text-[#00ab6c]" />}
+                  hover="hover:bg-[#00ab6c]/20"
                 />
+
               </div>
             </div>
           </div>
 
-          {/* RIGHT (FORM) */}
+          {/* RIGHT FORM (UNCHANGED) */}
           <div className="rounded-3xl border border-white/10 bg-white/5 p-7 backdrop-blur-md lg:p-10">
             <h3 className="text-2xl font-semibold text-white">
               Send me a message
             </h3>
 
-            <form className="mt-7 space-y-5" action={FORMSPREE_URL} method="POST">
-  <Field label="Name">
-    <input
-      name="name"
-      required
-      className="w-full rounded-xl border border-white/10 bg-black/30 px-4 py-3 text-sm text-white placeholder:text-white/40 outline-none focus:border-blue-400/60 focus:ring-2 focus:ring-blue-500/20"
-      placeholder="Your name"
-    />
-  </Field>
+            <form
+              className="mt-7 space-y-5"
+              action={FORMSPREE_URL}
+              method="POST"
+            >
+              <Field label="Name">
+                <input
+                  name="name"
+                  required
+                  className="w-full rounded-xl border border-white/10 bg-black/30 px-4 py-3 text-sm text-white placeholder:text-white/40 outline-none focus:border-blue-400/60 focus:ring-2 focus:ring-blue-500/20"
+                  placeholder="Your name"
+                />
+              </Field>
 
-  <Field label="Email">
-    <input
-      name="email"
-      type="email"
-      required
-      className="w-full rounded-xl border border-white/10 bg-black/30 px-4 py-3 text-sm text-white placeholder:text-white/40 outline-none focus:border-blue-400/60 focus:ring-2 focus:ring-blue-500/20"
-      placeholder="your.email@example.com"
-    />
-  </Field>
+              <Field label="Email">
+                <input
+                  name="email"
+                  type="email"
+                  required
+                  className="w-full rounded-xl border border-white/10 bg-black/30 px-4 py-3 text-sm text-white placeholder:text-white/40 outline-none focus:border-blue-400/60 focus:ring-2 focus:ring-blue-500/20"
+                  placeholder="your.email@example.com"
+                />
+              </Field>
 
-  <Field label="Message">
-    <textarea
-      name="message"
-      required
-      rows={5}
-      className="w-full resize-none rounded-xl border border-white/10 bg-black/30 px-4 py-3 text-sm text-white placeholder:text-white/40 outline-none focus:border-blue-400/60 focus:ring-2 focus:ring-blue-500/20"
-      placeholder="Tell me about your project..."
-    />
-  </Field>
+              <Field label="Message">
+                <textarea
+                  name="message"
+                  required
+                  rows={5}
+                  className="w-full resize-none rounded-xl border border-white/10 bg-black/30 px-4 py-3 text-sm text-white placeholder:text-white/40 outline-none focus:border-blue-400/60 focus:ring-2 focus:ring-blue-500/20"
+                  placeholder="Tell me about your project..."
+                />
+              </Field>
 
-  <input type="hidden" name="_subject" value="New message from portfolio" />
-  <input type="hidden" name="_captcha" value="false" />
+              <input
+                type="hidden"
+                name="_subject"
+                value="New message from portfolio"
+              />
+              <input type="hidden" name="_captcha" value="false" />
 
-  <button
-    type="submit"
-    className="group mt-2 flex w-full items-center justify-center gap-2 rounded-xl bg-gradient-to-r from-purple-600 to-blue-600 px-5 py-3 text-sm font-semibold text-white shadow-lg shadow-blue-500/10 transition hover:brightness-110 active:scale-[0.99]"
-  >
-    <Send className="h-4 w-4 transition group-hover:-translate-y-[1px]" />
-    Send Message
-  </button>
-</form>
+              <button
+                type="submit"
+                className="group mt-2 flex w-full items-center justify-center gap-2 rounded-xl bg-gradient-to-r from-purple-600 to-blue-600 px-5 py-3 text-sm font-semibold text-white shadow-lg shadow-blue-500/10 transition hover:brightness-110 active:scale-[0.99]"
+              >
+                <Send className="h-4 w-4 transition group-hover:-translate-y-[1px]" />
+                Send Message
+              </button>
+            </form>
           </div>
         </div>
       </div>
@@ -173,10 +204,12 @@ function SocialIcon({
   href,
   label,
   icon,
+  hover,
 }: {
   href: string;
   label: string;
   icon: React.ReactNode;
+  hover: string;
 }) {
   return (
     <Link
@@ -184,7 +217,7 @@ function SocialIcon({
       target="_blank"
       rel="noopener noreferrer"
       aria-label={label}
-      className="flex h-11 w-11 items-center justify-center rounded-xl border border-white/10 bg-white/5 text-white/80 backdrop-blur-md transition hover:border-blue-400/50 hover:text-white hover:bg-white/10"
+      className={`flex h-11 w-11 items-center justify-center rounded-xl border border-white/10 bg-white/5 backdrop-blur-md transition ${hover}`}
     >
       {icon}
     </Link>
