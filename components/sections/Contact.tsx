@@ -82,43 +82,11 @@ export default function Contact() {
               </div>
             </div>
 
-            {/* Follow */}
-            <div className="mt-10">
-              <p className="text-sm font-semibold text-white/90">
-                Follow me on
-              </p>
-
-              {/* COLORED SOCIAL ICONS */}
-              <div className="mt-4 flex flex-wrap gap-3">
-
-                {/* LinkedIn */}
-                <SocialIcon
-                  href="https://www.linkedin.com/in/imasha-kumarasinghe-8413b72b4/"
-                  label="LinkedIn"
-                  icon={<Linkedin className="h-5 w-5 text-[#0077B5]" />}
-                  hover="hover:bg-[#0077B5]/20"
-                />
-
-                {/* GitHub */}
-                <SocialIcon
-                  href="https://github.com/ImashaKumarasinghe"
-                  label="GitHub"
-                  icon={<Github className="h-5 w-5 text-[#181717]" />}
-                  hover="hover:bg-white/20"
-                />
+           
+                
+                
 
              
-
-                {/* Medium */}
-                <SocialIcon
-                  href="#"
-                  label="Medium"
-                  icon={<FaMedium className="h-5 w-5 text-[#00ab6c]" />}
-                  hover="hover:bg-[#00ab6c]/20"
-                />
-
-              </div>
-            </div>
           </div>
 
           {/* RIGHT FORM (UNCHANGED) */}

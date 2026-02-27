@@ -1,0 +1,120 @@
+import Link from "next/link";
+import { Github, Linkedin, X } from "lucide-react";
+import { FaMedium } from "react-icons/fa6";
+
+export default function Footer() {
+  return (
+    <footer className="w-full border-t bg-white">
+      {/* Top content */}
+      <div className="mx-auto max-w-6xl px-6 py-12">
+        {/* 3 columns */}
+        <div className="grid gap-10 md:grid-cols-3">
+          {/* LEFT: Name + short text + icons */}
+          <div>
+            <h3 className="text-xl font-semibold">Imasha Kumarasinghe</h3>
+            <p className="mt-3 text-sm text-gray-600 max-w-sm">
+              Full-stack Engineer, crafting modern applications with passion and
+              precision.
+            </p>
+
+           <div className="flex items-center gap-3">
+
+  {/* LinkedIn */}
+  <a
+    href="https://www.linkedin.com/in/imasha-kumarasinghe-8413b72b4/"
+    target="_blank"
+    rel="noopener noreferrer"
+    aria-label="LinkedIn"
+    className="
+      flex h-10 w-10 items-center justify-center
+      rounded-lg
+      text-gray-600
+      hover:text-[#0077B5]
+      hover:bg-gray-100
+      transition-colors duration-200
+    "
+  >
+    <Linkedin className="h-5 w-5" />
+  </a>
+
+  {/* GitHub */}
+  <a
+    href="https://github.com/ImashaKumarasinghe"
+    target="_blank"
+    rel="noopener noreferrer"
+    aria-label="GitHub"
+    className="
+      flex h-10 w-10 items-center justify-center
+      rounded-lg
+      text-gray-600
+      hover:text-black
+      hover:bg-gray-100
+      transition-colors duration-200
+    "
+  >
+    <Github className="h-5 w-5" />
+  </a>
+
+  
+
+</div>
+          </div>
+
+          {/* MIDDLE: Quick Links */}
+          <div className="md:justify-self-center">
+            <h4 className="text-sm font-semibold text-gray-900">Quick Links</h4>
+            <ul className="mt-4 space-y-3 text-sm text-gray-700">
+              <li>
+                <a href="#hero" className="hover:text-black transition">
+                  Home
+                </a>
+              </li>
+              <li>
+                <a href="#about" className="hover:text-black transition">
+                  About
+                </a>
+              </li>
+              <li>
+                <a href="#projects" className="hover:text-black transition">
+                  Projects
+                </a>
+              </li>
+              <li>
+                <a href="#contact" className="hover:text-black transition">
+                  Contact
+                </a>
+              </li>
+            </ul>
+          </div>
+
+          {/* RIGHT: Get in Touch */}
+          <div className="md:justify-self-end">
+            <h4 className="text-sm font-semibold text-gray-900">Get in Touch</h4>
+            <ul className="mt-4 space-y-3 text-sm text-gray-700">
+              <li>
+                Email:{" "}
+                <a
+                  href="mailto:imakumarasinghe00@gmail.com"
+                  className="hover:text-black transition"
+                >
+                  imakumarasinghe00@gmail.com
+                </a>
+              </li>
+              <li>Location: Sri Lanka</li>
+              <li>Open to opportunities</li>
+            </ul>
+          </div>
+        </div>
+
+        {/* Divider line */}
+        <div className="mt-10 border-t" />
+
+        {/* Bottom row */}
+        <div className="mt-6 flex flex-col gap-3 text-sm text-gray-600 md:flex-row md:items-center md:justify-between">
+          <p>© {new Date().getFullYear()} Imasha. All rights reserved.</p>
+          <p>Built with Next.js & Tailwind CSS</p>
+        </div>
+      </div>
+    </footer>
+  );
+}
