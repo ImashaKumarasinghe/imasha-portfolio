@@ -98,7 +98,9 @@ export default function Projects() {
   return (
     <section id="projects" className="mx-auto max-w-[1400px] px-6 py-16">
       <div className="text-center">
-        <h2 className="text-2xl font-semibold">Projects</h2>
+        <h2 className="text-3xl md:text-4xl font-bold">
+  My <span className="text-blue-600">Projects</span>
+</h2>
         <p className="mt-3 text-gray-600 mx-auto max-w-3xl">
           A few projects I have built, focusing on full-stack development and
           AI-driven solutions.
