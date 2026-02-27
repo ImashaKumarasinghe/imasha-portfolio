@@ -29,7 +29,7 @@ export default function Header() {
           <a
             href="https://github.com/ImashaKumarasinghe"
             target="_blank"
-            className="hover:text-gray-600"
+            className="hover:text-gray-600 focus:outline focus:outline-2 focus:outline-blue-600 rounded"
           >
             <Github className="h-5 w-5" />
           </a>
@@ -37,14 +37,14 @@ export default function Header() {
           <a
             href="https://www.linkedin.com/in/imasha-kumarasinghe-8413b72b4"
             target="_blank"
-            className="hover:text-gray-600"
+            className="hover:text-gray-600 focus:outline focus:outline-2 focus:outline-blue-600 rounded"
           >
             <Linkedin className="h-5 w-5" />
           </a>
 
           <a
             href="mailto:imakumarasinghe00@gmail.com"
-            className="hover:text-gray-600"
+            className="hover:text-gray-600 focus:outline focus:outline-2 focus:outline-blue-600 rounded"
           >
             <Mail className="h-5 w-5" />
           </a>
