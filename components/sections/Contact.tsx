@@ -24,7 +24,9 @@ export default function Contact() {
       </div>
 
       <div className="mx-auto max-w-6xl px-6">
-        <div className="text-center">Get in Touch</div>
+        <h2 className="text-3xl md:text-4xl font-bold text-center">
+  Get in <span className="text-blue-600">Touch</span>
+</h2>
         <div className="grid gap-10 lg:grid-cols-2">
           {/* LEFT */}
           <div>

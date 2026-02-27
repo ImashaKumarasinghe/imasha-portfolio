@@ -4,10 +4,7 @@ import { useState } from "react";
 import Image from "next/image";
 import Link from "next/link";
 import { motion, AnimatePresence } from "framer-motion";
-import {
-  ChevronLeft,
-  ChevronRight,
-} from "lucide-react";
+import { ChevronLeft, ChevronRight } from "lucide-react";
 import { cn } from "@/lib/utils";
 
 interface Testimonial {
@@ -28,7 +25,6 @@ const testimonials: Testimonial[] = [
     description:
       "Serving as Secretary of the IEEE WIE Student Branch Affinity Group at SUSL, supporting event planning, documentation, coordination, and communication to ensure smooth execution of student-led STEM initiatives.",
     imageUrl: "/volunteer/wie-secretary.jpg",
-    
   },
   {
     name: "Vice Secretary",
@@ -36,16 +32,13 @@ const testimonials: Testimonial[] = [
     description:
       "Contributed to organizing events, coordinating teams, maintaining documentation, and improving collaboration processes while strengthening leadership and communication skills.",
     imageUrl: "/volunteer/vsecretary.jpg",
-    
   },
-  
   {
     name: "Career Compass | University Sub-OC Secretary",
     title: "IEEE Young Professionals Sri Lanka | 2025",
     description:
       "Contributed as the University Sub-Organizing Committee (Sub-OC) Secretary, supporting coordination, communication, and smooth execution of the seminar aimed at guiding students toward informed academic and career pathways.",
     imageUrl: "/volunteer/yp-suboc.jpg",
-    
   },
   {
     name: "Instructor & ExCom Member – Hope Code Club",
@@ -53,7 +46,6 @@ const testimonials: Testimonial[] = [
     description:
       "Facilitated hands-on coding sessions for school students and supported event coordination, planning, and execution under IEEE WIE initiatives, enhancing mentorship, leadership, and organizational skills.",
     imageUrl: "/volunteer/organizer-instructor.jpg",
-    
   },
   {
     name: "Student Volunteer",
@@ -61,7 +53,6 @@ const testimonials: Testimonial[] = [
     description:
       "Appointed as a Student Volunteer for ICARC 2025 (hybrid international research conference), supporting session coordination and overall conference operations.”",
     imageUrl: "/volunteer/icarc.jpg",
-    
   },
   {
     name: "First Runner-Up",
@@ -69,7 +60,6 @@ const testimonials: Testimonial[] = [
     description:
       "Achieved First Runner-Up as a team member in Hackstrom, demonstrating teamwork, fast problem-solving, and practical implementation skills under competitive hackathon constraints.",
     imageUrl: "/volunteer/hackstrom-runnerup.jpg",
-    
   },
 ];
 
@@ -89,14 +79,12 @@ export function TestimonialCarousel({ className }: TestimonialCarouselProps) {
 
   const currentTestimonial = testimonials[currentIndex];
 
-  
-
   return (
-    <div className={cn("w-full max-w-5xl mx-auto px-4", className)}>
+    <div className={cn("w-full max-w-full", className)}>
       {/* Desktop layout */}
       <div className="hidden md:flex relative items-center">
-        {/* Avatar */}
-        <div className="w-[470px] h-[470px] rounded-3xl overflow-hidden bg-gray-200 dark:bg-neutral-800 flex-shrink-0">
+        {/* ✅ Smaller image so it doesn't feel overloaded */}
+        <div className="w-[360px] h-[360px] rounded-3xl overflow-hidden bg-gray-200 dark:bg-neutral-800 flex-shrink-0">
           <AnimatePresence mode="wait">
             <motion.div
               key={currentTestimonial.imageUrl}
@@ -109,8 +97,8 @@ export function TestimonialCarousel({ className }: TestimonialCarouselProps) {
               <Image
                 src={currentTestimonial.imageUrl}
                 alt={currentTestimonial.name}
-                width={470}
-                height={470}
+                width={360}
+                height={360}
                 className="w-full h-full object-cover"
                 draggable={false}
                 priority
@@ -119,8 +107,8 @@ export function TestimonialCarousel({ className }: TestimonialCarouselProps) {
           </AnimatePresence>
         </div>
 
-        {/* Card */}
-        <div className="bg-white dark:bg-card rounded-3xl shadow-2xl p-8 ml-[-80px] z-10 max-w-xl flex-1">
+        {/* ✅ Smaller card + smaller text */}
+        <div className="bg-white dark:bg-card rounded-3xl shadow-2xl p-6 ml-[-56px] z-10 max-w-[360px] flex-1">
           <AnimatePresence mode="wait">
             <motion.div
               key={currentTestimonial.name}
@@ -129,29 +117,29 @@ export function TestimonialCarousel({ className }: TestimonialCarouselProps) {
               exit={{ opacity: 0 }}
               transition={{ duration: 0.4, ease: "easeInOut" }}
             >
-              <div className="mb-6">
-                <h2 className="text-2xl font-bold text-gray-900 dark:text-white mb-2">
+              <div className="mb-4">
+                {/* ✅ Smaller heading */}
+                <h2 className="text-xl font-bold text-gray-900 dark:text-white mb-2">
                   {currentTestimonial.name}
                 </h2>
 
-                <p className="text-sm font-medium text-gray-700 dark:text-gray-500">
+                {/* ✅ Smaller title line */}
+                <p className="text-xs font-medium text-gray-700 dark:text-gray-500">
                   {currentTestimonial.title}
                 </p>
               </div>
 
-              <p className="text-black dark:text-white text-base leading-relaxed mb-8">
+              {/* ✅ Smaller description text */}
+              <p className="text-black dark:text-white text-sm leading-relaxed mb-6">
                 {currentTestimonial.description}
               </p>
-
-              
             </motion.div>
           </AnimatePresence>
         </div>
       </div>
 
-      {/* Mobile layout */}
+      {/* Mobile layout - unchanged */}
       <div className="md:hidden max-w-sm mx-auto text-center bg-transparent">
-        {/* Avatar */}
         <div className="w-full aspect-square bg-gray-200 dark:bg-gray-700 rounded-3xl overflow-hidden mb-6">
           <AnimatePresence mode="wait">
             <motion.div
@@ -175,7 +163,6 @@ export function TestimonialCarousel({ className }: TestimonialCarouselProps) {
           </AnimatePresence>
         </div>
 
-        {/* Card content */}
         <div className="px-4">
           <AnimatePresence mode="wait">
             <motion.div
@@ -196,8 +183,6 @@ export function TestimonialCarousel({ className }: TestimonialCarouselProps) {
               <p className="text-black dark:text-white text-sm leading-relaxed mb-6">
                 {currentTestimonial.description}
               </p>
-
-             
             </motion.div>
           </AnimatePresence>
         </div>
@@ -205,7 +190,6 @@ export function TestimonialCarousel({ className }: TestimonialCarouselProps) {
 
       {/* Bottom navigation */}
       <div className="flex justify-center items-center gap-6 mt-8">
-        {/* Previous */}
         <button
           onClick={handlePrevious}
           aria-label="Previous testimonial"
@@ -214,7 +198,6 @@ export function TestimonialCarousel({ className }: TestimonialCarouselProps) {
           <ChevronLeft className="w-6 h-6 text-gray-700 dark:text-gray-50" />
         </button>
 
-        {/* Dots (now 5 dots) */}
         <div className="flex gap-2">
           {testimonials.map((_, testimonialIndex) => (
             <button
@@ -231,7 +214,6 @@ export function TestimonialCarousel({ className }: TestimonialCarouselProps) {
           ))}
         </div>
 
-        {/* Next */}
         <button
           onClick={handleNext}
           aria-label="Next testimonial"
