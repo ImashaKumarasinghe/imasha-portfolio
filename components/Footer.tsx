@@ -13,8 +13,7 @@ export default function Footer() {
           <div>
             <h3 className="text-xl font-semibold">Imasha Kumarasinghe</h3>
             <p className="mt-3 text-sm text-gray-600 max-w-sm">
-              Full-stack Engineer, crafting modern applications with passion and
-              precision.
+              Full-Stack Engineer passionate about designing and developing reliable, efficient software systems.
             </p>
 
            <div className="flex items-center gap-3">
