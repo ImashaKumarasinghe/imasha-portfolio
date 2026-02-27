@@ -1,29 +1,30 @@
 import Link from "next/link";
 import { Github, Linkedin, Mail } from "lucide-react";
 
-
 export default function Header() {
   return (
     <header className="sticky top-0 z-50 w-full border-b bg-white">
         
+      {/* Increased overall header width and reduced side padding */}
+      <div className="mx-auto flex max-w-8xl max-h-18 items-center justify-between pl-2 pr-2 py-4">
+        {/* max-w-7xl → increased header width */}
+        {/* pl-2 → moves name more to left */}
+        {/* pr-2 → moves icons more to right */}
 
-      <div className="mx-auto flex max-w-6xl items-center justify-between px-6 py-4">
-        
-        {/* Logo / Name */}
+        {/* Logo / Name - now more left aligned */}
         <Link href="/" className="text-lg font-semibold">
           Imasha Kumarasinghe
         </Link>
 
-        {/* Navigation Links */}
+        {/* Navigation Links - unchanged */}
         <nav className="hidden md:flex gap-6 text-sm font-medium">
           <a href="#hero" className="hover:text-blue-600">Home</a>
           <a href="#about" className="hover:text-blue-600">About</a>
           <a href="#projects" className="hover:text-blue-600">Projects</a>
-          
           <a href="#contact" className="hover:text-blue-600">Contact</a>
         </nav>
 
-        {/* Social Icons */}
+        {/* Social Icons - now more right aligned */}
         <div className="flex items-center gap-4">
           <a
             href="https://github.com/ImashaKumarasinghe"
@@ -48,6 +49,7 @@ export default function Header() {
             <Mail className="h-5 w-5" />
           </a>
         </div>
+
       </div>
     </header>
   );
