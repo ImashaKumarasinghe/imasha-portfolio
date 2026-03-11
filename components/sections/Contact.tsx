@@ -16,9 +16,36 @@ import {
 // Medium icon is not in lucide-react, so we use react-icons
 import { FaMedium } from "react-icons/fa";
 
-const FORMSPREE_URL = "https://formspree.io/f/xeelnnob";
-
 export default function Contact() {
+  const [name, setName] = React.useState("");
+  const [email, setEmail] = React.useState("");
+  const [message, setMessage] = React.useState("");
+
+  const handleSubmit = async (e: React.FormEvent) => {
+    e.preventDefault();
+
+    const res = await fetch("/api/contact", {
+      method: "POST",
+      headers: {
+        "Content-Type": "application/json",
+      },
+      body: JSON.stringify({
+        name,
+        email,
+        message,
+      }),
+    });
+
+    if (res.ok) {
+      alert("Message sent!");
+      setName("");
+      setEmail("");
+      setMessage("");
+    } else {
+      alert("Error sending message");
+    }
+  };
+
   return (
     <section id="contact" className="relative py-20">
       {/* background */}
@@ -81,12 +108,6 @@ export default function Contact() {
                 </div>
               </div>
             </div>
-
-           
-                
-                
-
-             
           </div>
 
           {/* RIGHT FORM (UNCHANGED) */}
@@ -97,12 +118,13 @@ export default function Contact() {
 
             <form
               className="mt-7 space-y-5"
-              action={FORMSPREE_URL}
-              method="POST"
+              onSubmit={handleSubmit}
             >
               <Field label="Name">
                 <input
                   name="name"
+                  value={name}
+                  onChange={(e) => setName(e.target.value)}
                   required
                   className="w-full rounded-xl border border-white/10 bg-black/30 px-4 py-3 text-sm text-white placeholder:text-white/40 outline-none focus:border-blue-400/60 focus:ring-2 focus:ring-blue-500/20"
                   placeholder="Your name"
@@ -113,6 +135,8 @@ export default function Contact() {
                 <input
                   name="email"
                   type="email"
+                  value={email}
+                  onChange={(e) => setEmail(e.target.value)}
                   required
                   className="w-full rounded-xl border border-white/10 bg-black/30 px-4 py-3 text-sm text-white placeholder:text-white/40 outline-none focus:border-blue-400/60 focus:ring-2 focus:ring-blue-500/20"
                   placeholder="your.email@example.com"
@@ -122,19 +146,14 @@ export default function Contact() {
               <Field label="Message">
                 <textarea
                   name="message"
+                  value={message}
+                  onChange={(e) => setMessage(e.target.value)}
                   required
                   rows={5}
                   className="w-full resize-none rounded-xl border border-white/10 bg-black/30 px-4 py-3 text-sm text-white placeholder:text-white/40 outline-none focus:border-blue-400/60 focus:ring-2 focus:ring-blue-500/20"
                   placeholder="Tell me about your project..."
                 />
               </Field>
-
-              <input
-                type="hidden"
-                name="_subject"
-                value="New message from portfolio"
-              />
-              <input type="hidden" name="_captcha" value="false" />
 
               <button
                 type="submit"
