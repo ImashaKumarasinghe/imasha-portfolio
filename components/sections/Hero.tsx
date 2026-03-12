@@ -6,6 +6,15 @@ import { GradientButton } from "@/components/ui/gradient-button";
 import { ShinyButton } from "@/components/shiny-button";
 
 export default function Hero() {
+  const handleDownloadCV = () => {
+    const link = document.createElement("a");
+    link.href = "/Imasha_CV.pdf";
+    link.download = "Imasha_CV.pdf";
+    document.body.appendChild(link);
+    link.click();
+    link.remove();
+  };
+
   return (
     <main className="relative min-h-screen overflow-hidden">
       <ThreeBackground />
@@ -38,9 +47,7 @@ export default function Hero() {
             </GradientButton>
 
             {/* Download CV */}
-            <a href="/cv.pdf" target="_blank" rel="noopener noreferrer">
-              <ShinyButton>Download CV</ShinyButton>
-            </a>
+            <ShinyButton onClick={handleDownloadCV}>Download CV</ShinyButton>
           </div>
         </div>
 
