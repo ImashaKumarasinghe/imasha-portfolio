@@ -93,6 +93,29 @@ export default function Projects() {
         "https://www.linkedin.com/posts/imasha-kumarasinghe-8413b72b4_webdevelopment-fullstack-nextjs-activity-7425038383300882432-aG01?utm_source=share&utm_medium=member_desktop&rcm=ACoAAEuFkvEBBdXFovMOttBane1TPAfWO4CLPRo",
       codeUrl: "https://github.com/stars/ImashaKumarasinghe/lists/paw-track",
     },
+
+    {
+  tag: "Full Stack Web Application",
+  title: "SmartBursary — University Bursary Management System",
+  description:
+    "SmartBursary is a full-stack web application designed to digitalize and streamline the university bursary distribution process. The system allows bursary officers to upload eligible student lists, faculty MA officers to verify the required 80% attendance, and students to check their bursary eligibility status through a secure portal. It also provides transparency by showing rejection reasons and installment details while enabling efficient communication between faculties and the university bursary division.",
+  imageSrc: "/projects/smartbursary.png",
+  tech: [
+    "Laravel",
+    "PHP",
+    "Next.js",
+    "Tailwind CSS",
+    "JWT Authentication",
+    "GitHub",
+    "Jira",
+    "Figma",
+  ],
+  ctaText: "View Project",
+  href: "#",
+  status: "Ongoing",
+  demoUrl: "#",
+  codeUrl: "#",
+},
   ];
 
   return (
