@@ -123,7 +123,7 @@ export default function ProjectWaveCard({
       <AnimatePresence>
         {open && (
           <motion.div
-            className="fixed inset-0 z-50 flex items-center justify-center px-4"
+            className="fixed inset-0 z-50 flex items-center justify-center px-3 sm:px-4 py-4 sm:py-0"
             initial={{ opacity: 0 }}
             animate={{ opacity: 1 }}
             exit={{ opacity: 0 }}
@@ -136,62 +136,62 @@ export default function ProjectWaveCard({
               type="button"
             />
 
-            {/* modal */}
+            {/* modal - responsive for mobile */}
             <motion.div
-              className="relative z-10 w-full max-w-3xl overflow-hidden rounded-2xl bg-white shadow-2xl ring-2 ring-[#315f96]"
+              className="relative z-10 w-full max-w-3xl max-h-[90vh] overflow-y-auto rounded-xl sm:rounded-2xl bg-white shadow-2xl ring-2 ring-[#315f96]"
               initial={{ y: 20, scale: 0.98, opacity: 0 }}
               animate={{ y: 0, scale: 1, opacity: 1 }}
               exit={{ y: 20, scale: 0.98, opacity: 0 }}
               transition={{ type: "spring", stiffness: 260, damping: 22 }}
             >
-              {/* top image */}
-              <div className="relative h-72 w-full">
+              {/* top image - responsive height */}
+              <div className="relative h-48 sm:h-56 md:h-72 w-full flex-shrink-0">
                 <Image src={imageSrc} alt={title} fill className="object-cover" />
               </div>
 
-              <div className="p-6">
-                <div className="flex items-start justify-between gap-4">
-                  <div>
+              <div className="p-3 sm:p-4 md:p-6">
+                <div className="flex items-start justify-between gap-2 sm:gap-4">
+                  <div className="flex-1 min-w-0">
                     {tag ? (
-                      <span className="inline-flex items-center rounded-full bg-[#315f96]/10 px-3 py-1 text-xs font-medium text-[#315f96]">
+                      <span className="inline-flex items-center rounded-full bg-[#315f96]/10 px-2 sm:px-3 py-0.5 sm:py-1 text-xs font-medium text-[#315f96]">
                         {tag}
                       </span>
                     ) : null}
 
-                    <h3 className="mt-3 text-xl font-bold text-[#315f96]">
+                    <h3 className="mt-2 sm:mt-3 text-lg sm:text-xl font-bold text-[#315f96] break-words">
                       {title}
                     </h3>
-                    <p className="mt-2 text-sm text-gray-600">{description}</p>
+                    <p className="mt-1 sm:mt-2 text-xs sm:text-sm text-gray-600 line-clamp-4 sm:line-clamp-none">{description}</p>
                   </div>
 
                   <button
                     type="button"
                     onClick={() => setOpen(false)}
-                    className="rounded-lg border border-gray-300 px-3 py-2 text-sm font-semibold hover:bg-gray-50"
+                    className="rounded-lg border border-gray-300 px-2 sm:px-3 py-1 sm:py-2 text-xs sm:text-sm font-semibold hover:bg-gray-50 flex-shrink-0"
                   >
                     Close
                   </button>
                 </div>
 
                 {/* all tech */}
-                <div className="mt-5 flex flex-wrap gap-2">
+                <div className="mt-3 sm:mt-5 flex flex-wrap gap-1 sm:gap-2">
                   {tech.map((t) => (
                     <span
                       key={t}
-                      className="rounded-full bg-gray-100 px-3 py-1 text-xs text-gray-700"
+                      className="rounded-full bg-gray-100 px-2 sm:px-3 py-0.5 sm:py-1 text-xs text-gray-700"
                     >
                       {t}
                     </span>
                   ))}
                 </div>
 
-                {/* links */}
-                <div className="mt-6 flex items-center gap-3">
+                {/* links - responsive buttons */}
+                <div className="mt-4 sm:mt-6 flex flex-col sm:flex-row items-stretch sm:items-center gap-2 sm:gap-3">
                   <a
                     href={demoUrl}
                     target="_blank"
                     rel="noopener noreferrer"
-                    className="inline-flex items-center justify-center rounded-lg bg-[#315f96] px-5 py-2.5 text-sm font-semibold text-white hover:bg-[#2b5486] transition"
+                    className="inline-flex items-center justify-center rounded-lg bg-[#315f96] px-4 sm:px-5 py-2 sm:py-2.5 text-xs sm:text-sm font-semibold text-white hover:bg-[#2b5486] transition"
                   >
                     Open Demo
                   </a>
@@ -200,7 +200,7 @@ export default function ProjectWaveCard({
                     href={codeUrl}
                     target="_blank"
                     rel="noopener noreferrer"
-                    className="inline-flex items-center justify-center rounded-lg border border-gray-300 bg-white px-5 py-2.5 text-sm font-semibold text-gray-900 hover:bg-gray-50 transition"
+                    className="inline-flex items-center justify-center rounded-lg border border-gray-300 bg-white px-4 sm:px-5 py-2 sm:py-2.5 text-xs sm:text-sm font-semibold text-gray-900 hover:bg-gray-50 transition"
                   >
                     View Code
                   </a>

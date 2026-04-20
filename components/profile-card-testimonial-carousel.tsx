@@ -188,23 +188,23 @@ export function TestimonialCarousel({ className }: TestimonialCarouselProps) {
         </div>
       </div>
 
-      {/* Bottom navigation */}
-      <div className="flex justify-center items-center gap-6 mt-8">
+      {/* Bottom navigation - responsive buttons */}
+      <div className="flex justify-center items-center gap-2 sm:gap-4 md:gap-6 mt-6 md:mt-8">
         <button
           onClick={handlePrevious}
           aria-label="Previous testimonial"
-          className="w-12 h-12 rounded-full bg-gray-100 dark:bg-card border border-gray-300 dark:border-card/40 shadow-md flex items-center justify-center hover:bg-gray-200 dark:hover:bg-card/80 transition-colors cursor-pointer"
+          className="w-8 sm:w-10 md:w-12 h-8 sm:h-10 md:h-12 rounded-full bg-gray-100 dark:bg-card border border-gray-300 dark:border-card/40 shadow-md flex items-center justify-center hover:bg-gray-200 dark:hover:bg-card/80 transition-colors cursor-pointer"
         >
-          <ChevronLeft className="w-6 h-6 text-gray-700 dark:text-gray-50" />
+          <ChevronLeft className="w-4 sm:w-5 md:w-6 h-4 sm:h-5 md:h-6 text-gray-700 dark:text-gray-50" />
         </button>
 
-        <div className="flex gap-2">
+        <div className="flex gap-1 sm:gap-2">
           {testimonials.map((_, testimonialIndex) => (
             <button
               key={testimonialIndex}
               onClick={() => setCurrentIndex(testimonialIndex)}
               className={cn(
-                "w-3 h-3 rounded-full transition-colors cursor-pointer",
+                "w-2 h-2 sm:w-3 sm:h-3 rounded-full transition-colors cursor-pointer",
                 testimonialIndex === currentIndex
                   ? "bg-gray-900 dark:bg-white"
                   : "bg-gray-400 dark:bg-gray-600"
@@ -217,9 +217,9 @@ export function TestimonialCarousel({ className }: TestimonialCarouselProps) {
         <button
           onClick={handleNext}
           aria-label="Next testimonial"
-          className="w-12 h-12 rounded-full bg-gray-100 dark:bg-card border border-gray-300 dark:border-card/40 shadow-md flex items-center justify-center hover:bg-gray-200 dark:hover:bg-card/80 transition-colors cursor-pointer"
+          className="w-8 sm:w-10 md:w-12 h-8 sm:h-10 md:h-12 rounded-full bg-gray-100 dark:bg-card border border-gray-300 dark:border-card/40 shadow-md flex items-center justify-center hover:bg-gray-200 dark:hover:bg-card/80 transition-colors cursor-pointer"
         >
-          <ChevronRight className="w-6 h-6 text-gray-700 dark:text-gray-50" />
+          <ChevronRight className="w-4 sm:w-5 md:w-6 h-4 sm:h-5 md:h-6 text-gray-700 dark:text-gray-50" />
         </button>
       </div>
     </div>
