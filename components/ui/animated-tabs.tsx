@@ -112,6 +112,7 @@ const AnimatedTabs = ({
       { name: "HTML", src: "/tech/html.png" },
       { name: "CSS", src: "/tech/css.png" },
       { name: "JavaScript", src: "/tech/js.png" },
+      { name: "Three.js", src: "/tech/Three.js.png" },
     ],
     backend: [
       { name: "Node.js", src: "/tech/node.png" },
@@ -119,6 +120,9 @@ const AnimatedTabs = ({
       { name: "java", src: "/tech/java.png" },
       { name: "Spring Boot", src: "/tech/spring-boot.png" },
       { name: "Python", src: "/tech/python.png" },
+      { name: ".NET Core", src: "/tech/NET core.png" },
+       { name: "FastAPI", src: "/tech/FastAPI.png" },
+
     ],
     database: [
       { name: "MongoDB", src: "/tech/mongodb.png" },
@@ -149,6 +153,7 @@ const AnimatedTabs = ({
     mobile: [
       { name: "React Native", src: "/tech/react-native.png" },
       { name: "Expo go", src: "/tech/expo go.png" },
+      { name: "Dart", src: "/tech/Dart.png" },
     ],
   };
 
