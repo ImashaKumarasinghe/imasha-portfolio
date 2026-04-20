@@ -143,19 +143,19 @@ export default function Projects() {
   ];
 
   return (
-    <section id="projects" className="mx-auto max-w-[1400px] px-6 py-16">
+    <section id="projects" className="mx-auto max-w-[1400px] px-4 md:px-6 py-12 md:py-16">
       <div className="text-center">
-        <h2 className="text-3xl md:text-4xl font-bold">
+        <h2 className="text-2xl sm:text-3xl md:text-4xl font-bold">
   My <span className="text-blue-600">Projects</span>
 </h2>
-        <p className="mt-3 text-gray-600 mx-auto max-w-3xl">
+        <p className="mt-3 text-xs sm:text-sm md:text-base text-gray-600 mx-auto max-w-3xl px-2">
           A few projects I have built, focusing on full-stack development and
           AI-driven solutions.
         </p>
       </div>
 
-      {/* ✅ Always 3 cards on desktop */}
-      <div className="mt-12 grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+      {/* ✅ Responsive grid: 1 col on mobile, 2 on tablet, 3 on desktop */}
+      <div className="mt-8 md:mt-12 grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 md:gap-8">
         {projects.map((p) => (
           <ProjectWaveCard
             key={p.title}

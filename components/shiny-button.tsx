@@ -54,9 +54,9 @@ export function ShinyButton({ children, onClick, className = "" }: ShinyButtonPr
           overflow: hidden;
           cursor: pointer;
           outline-offset: 4px;
-          padding: 1.25rem 2.5rem;
+          padding: 0.75rem 1.5rem;
           font-family: "Inter", sans-serif;
-          font-size: 1.125rem;
+          font-size: 0.875rem;
           line-height: 1.2;
           font-weight: 500;
           border: 1px solid transparent;
@@ -74,6 +74,20 @@ export function ShinyButton({ children, onClick, className = "" }: ShinyButtonPr
           box-shadow: inset 0 0 0 1px var(--shiny-cta-bg-subtle);
           transition: var(--transition);
           transition-property: --gradient-angle-offset, --gradient-percent, --gradient-shine;
+        }
+
+        @media (min-width: 640px) {
+          .shiny-cta {
+            padding: 1rem 2rem;
+            font-size: 1rem;
+          }
+        }
+
+        @media (min-width: 768px) {
+          .shiny-cta {
+            padding: 1.25rem 2.5rem;
+            font-size: 1.125rem;
+          }
         }
 
         .shiny-cta::before,
