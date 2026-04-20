@@ -116,6 +116,30 @@ export default function Projects() {
   demoUrl: "#",
   codeUrl: "#",
 },
+{
+  tag: "AI-Powered Full Stack Application",
+  title: "TransitPulse — Smart Public Transport Overcrowding Predictor",
+  description:
+    "TransitPulse is a full-stack AI-powered transport analytics platform designed to improve public transport experiences through real-time crowd monitoring and intelligent insights. The system enables users to report live crowd levels, view route-based updates, and receive data-driven recommendations. It integrates a FastAPI-based AI service using a Retrieval-Augmented Generation (RAG) approach with LLM support, allowing users to interact with a smart assistant for peak hour analysis and optimal travel time suggestions.",
+  imageSrc: "/projects/transitpulse.png",
+  tech: [
+    "ASP.NET Core Web API (.NET)",
+    "C#",
+    "Entity Framework Core",
+    "PostgreSQL",
+    "SignalR",
+    "JWT Authentication",
+    "Next.js",
+    "FastAPI",
+    "Gemini API (LLM)",
+    "RAG"
+  ],
+  ctaText: "View Project",
+  href: "#",
+  status: "Ongoing",
+  demoUrl: "",
+  codeUrl: "https://github.com/ImashaKumarasinghe/TRANSITPULSE_NEW",
+}
   ];
 
   return (
